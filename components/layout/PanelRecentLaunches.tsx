@@ -1,7 +1,7 @@
 import { Clock } from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
 
-import LargeCard from '@/components/ui/RowCard';
+import RowCard from '@/components/ui/RowCard';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 
 export default function PanelRecentLaunches() {
@@ -20,9 +20,9 @@ export default function PanelRecentLaunches() {
             </header>
 
             <div className="flex flex-col gap-2 flex-1">
-                <LargeCard />
-                <LargeCard />
-                <LargeCard />
+                <RowCard />
+                <RowCard />
+                <RowCard />
 
                 <PrimaryButton text="See All" Icon={ChevronRight} />
             </div>
