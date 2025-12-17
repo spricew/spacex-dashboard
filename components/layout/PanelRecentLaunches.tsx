@@ -1,7 +1,7 @@
 import { Clock } from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
 
-import LargeCard from '@/components/ui/LargeCard';
+import LargeCard from '@/components/ui/RowCard';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 
 export default function PanelRecentLaunches() {
