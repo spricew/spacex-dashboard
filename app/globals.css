@@ -71,7 +71,8 @@
 body {
   font-family: "Poppins", system-ui, Arial, Helvetica, sans-serif;
   color: white;
-  background-color: var(--color-primary-600);}
+  background-color: var(--color-primary-600);
+}
 
 /* layout visualization */
 /* *{
