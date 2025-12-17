@@ -1,17 +1,15 @@
 import Header from '@/components/layout/Header';
+import Banner from '@/components/ui/Banner';
+import SquareCard from '@/components/ui/SquareCard';
 
 export default function Home() {
   return (
     <div className="relative flex flex-col h-screen w-full">
       <Header />
-      <div className="absolute inset-0 -z-50 w-full h-screen">
-        <picture className="absolute inset-0 w-full h-full">
-          <img src="/earthBg.jpg"
-            className="object-cover w-full h-full" />
-        </picture>
-      </div>
-
-      
+      <picture className="absolute inset-0 -z-50 w-full h-screen">
+        <img src="/earthBg.jpg"
+          className="object-cover w-full h-full" />
+      </picture>
 
       <div className="grid grid-cols-[350px_1fr] gap-4 h-screen w-full p-4">
         <aside className="flex flex-col w-full col-span-1 p-6 flex-1
@@ -28,23 +26,13 @@ export default function Home() {
         </aside>
 
         <main className="grid grid-rows-[200px_1fr]">
-          <div className="grid grid-cols-[42em_1fr_1fr] gap-4">
-            <div className="relative bg-primary-300 rounded-3xl -z-10 overflow-hidden">
-              <picture className="absolute inset-0 w-full h-full">
-                <img src="https://muyinteresante.okdiario.com/wp-content/uploads/sites/5/2024/07/09/668d54e1b6bfa-e1736353489521.png?w=800"
-                  className="object-cover w-full h-full" />
-              </picture>
+          <div className="grid grid-cols-[42em_1fr] gap-4">
+            <Banner />
+            <div className='flex gap-4'>
+              <SquareCard title="Tarjeta 1" content="Contenido de la tarjeta 1" />
+              <SquareCard title="Tarjeta 2" content="Contenido de la tarjeta 2" />
             </div>
-            <div className="flex justify-center items-center w-full h-full
-            rounded-3xl ring ring-inset ring-white/10
-           bg-white/10 backdrop-blur-xl shadow-lg shadow-black/20">
-              Tarjeta 1
-            </div>
-            <div className="flex justify-center items-center w-full h-full
-            rounded-3xl ring ring-inset ring-white/10
-           bg-white/10 backdrop-blur-xl shadow-lg shadow-black/20">
-              Tarjeta 2
-            </div>
+
           </div>
         </main>
       </div>
