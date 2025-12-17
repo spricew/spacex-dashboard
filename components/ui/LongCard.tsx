@@ -23,9 +23,9 @@ export default function LongCard({
             label: 'Success',
         }
         : {
-            badge: 'text-red-900 bg-red-400 ring-red-400/20',
+            badge: 'text-red-300 bg-red-800 ring-red-400/20',
             dot: 'bg-red-400',
-            label: 'Fail',
+            label: 'Failed',
         };
 
     return (
