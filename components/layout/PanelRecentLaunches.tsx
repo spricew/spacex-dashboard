@@ -11,7 +11,7 @@ export default function PanelRecentLaunches() {
     return (
         <section className={`flex flex-col gap-4 p-6 ${glassCard}`}>
             <header className="flex items-center gap-2">
-                <span className={`flex size-12 items-center justify-center rounded-full bg-white/10 ${glassCard}`}>
+                <span className={`flex size-12 items-center justify-center rounded-full ${glassCard}`}>
                     <Clock className="w-6 h-6 text-white/80" />
                 </span>
                 <h2 className="text-3xl tracking-tight font-medium">
