@@ -1,3 +1,5 @@
+import { Rocket } from 'lucide-react';
+
 import Header from '@/components/layout/Header';
 import Banner from '@/components/ui/Banner';
 import SquareCard from '@/components/ui/SquareCard';
@@ -42,12 +44,11 @@ export default function Home() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <picture className="p-4 size-12 
+              <span className="flex justify-center items-center size-12 
                 rounded-full ring ring-inset ring-white/10
               bg-white/10 backdrop-blur-xl">
-                <img src="/earthBg.jpg"
-                  className="object-cover w-full h-full" />
-              </picture>
+                <Rocket className="w-full aspect-square shrink-0 text-white/80" />
+              </span>
               <h1 className='text-3xl tracking-tight font-medium'>Recent Launches</h1>
             </div>
             <div className="flex flex-col h-full gap-2">
