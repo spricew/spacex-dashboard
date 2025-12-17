@@ -1,4 +1,4 @@
-import { Rocket } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
@@ -25,9 +25,10 @@ export default function Home() {
 
       <div className="grid grid-cols-[350px_1fr] gap-2 flex-1 p-2">
 
-        <section className='grid grid-rows-[300px_1fr]'>
+        <section className='grid grid-rows-[150px_1fr] gap-2'>
           {/* Sidebar */}
           <Sidebar />
+          <SquareCard title="Quick Info" content="Some quick info here" />
         </section>
 
 
@@ -38,8 +39,8 @@ export default function Home() {
             <Banner />
 
             <div className="flex gap-2">
-              <SquareCard title="Tarjeta 1" content="Contenido de la tarjeta 1" />
-              <SquareCard title="Tarjeta 2" content="Contenido de la tarjeta 2" />
+              <SquareCard title="Succesfull Launches" content="Contenido de la tarjeta 1" />
+              <SquareCard title="Failed Launches" content="Contenido de la tarjeta 2" />
             </div>
           </section>
 
@@ -47,7 +48,7 @@ export default function Home() {
           <section className={`flex flex-col gap-4 p-6 ${glassCard}`}>
             <header className="flex items-center gap-2">
               <span className={`flex size-12 items-center justify-center rounded-full bg-white/10 ${glassCard}`}>
-                <Rocket className="w-6 h-6 text-white/80" />
+                <Clock className="w-6 h-6 text-white/80" />
               </span>
               <h2 className="text-3xl tracking-tight font-medium">
                 Recent Launches
