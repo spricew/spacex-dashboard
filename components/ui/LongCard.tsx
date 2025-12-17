@@ -1,3 +1,5 @@
+import Badge from "./Badge";
+
 interface LongCardProps {
     title: string;
     launchName: string;
@@ -16,18 +18,7 @@ export default function LongCard({
     successStatus,
     image,
 }: LongCardProps) {
-    const statusStyles = successStatus
-        ? {
-            badge: 'text-green-400 bg-green-900 ring-green-400/20',
-            dot: 'bg-green-400',
-            label: 'Success',
-        }
-        : {
-            badge: 'text-red-300 bg-red-800 ring-red-400/20',
-            dot: 'bg-red-400',
-            label: 'Failed',
-        };
-
+    
     return (
         <div
             className={`relative flex flex-col gap-2 w-full h-full p-6 overflow-hidden ${glassCard}`}
@@ -54,14 +45,7 @@ export default function LongCard({
                         {launchName}
                     </span>
 
-                    <span
-                        className={`flex items-center px-1.5 py-0.5 text-xs font-medium rounded-full ring ring-inset ${statusStyles.badge}`}
-                    >
-                        <span
-                            className={`mr-1 inline-block size-1.5 rounded-full ${statusStyles.dot}`}
-                        />
-                        {statusStyles.label}
-                    </span>
+                    <Badge status={successStatus} />
                 </div>
 
                 <span className="text-xs font-medium">
