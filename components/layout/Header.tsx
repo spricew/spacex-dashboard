@@ -13,10 +13,6 @@ export default function Header() {
         height={32}
         priority
       />
-
-      <h1 className="text-2xl tracking-tighter font-medium">
-        SpaceX Dashboard
-      </h1>
     </header>
   );
 }
