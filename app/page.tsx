@@ -1,6 +1,9 @@
+import Header from '@/components/layout/Header';
+
 export default function Home() {
   return (
     <div className="relative flex flex-col h-screen w-full">
+      <Header />
       <div className="absolute inset-0 -z-50 w-full h-screen">
         <picture className="absolute inset-0 w-full h-full">
           <img src="/earthBg.jpg"
@@ -8,12 +11,7 @@ export default function Home() {
         </picture>
       </div>
 
-      <header className="flex justify-between items-center px-12 py-6
-      bg-black/10 backdrop-blur-xl brightness-150 shadow-lg">
-        <h1 className="text-2xl tracking-tighter font-medium">
-          SpaceX Dashboard
-        </h1>
-      </header>
+      
 
       <div className="grid grid-cols-[350px_1fr] gap-4 h-screen w-full p-4">
         <aside className="flex flex-col w-full col-span-1 p-6 flex-1
