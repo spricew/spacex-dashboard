@@ -1,10 +1,12 @@
 import { Clock } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
 import Banner from '@/components/ui/Banner';
 import SquareCard from '@/components/ui/SquareCard';
 import LargeCard from '@/components/ui/LargeCard';
+import PrimaryButton from '@/components/ui/PrimaryButton';
 
 const glassCard =
   'rounded-3xl ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20';
@@ -60,11 +62,7 @@ export default function Home() {
               <LargeCard />
               <LargeCard />
 
-              <button
-                className="mt-auto w-fit rounded-full px-6 py-2 ring ring-inset ring-white/20 bg-primary-base"
-              >
-                See all
-              </button>
+              <PrimaryButton text="See All" Icon={ChevronRight} />
             </div>
           </section>
         </main>
