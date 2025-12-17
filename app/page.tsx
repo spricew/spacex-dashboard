@@ -30,6 +30,7 @@ export default async function Home() {
             title="Latest Launch"
             launchName={launch.name}
             id={launch.id}
+            successStatus={launch.success}
             image="/test.png" />
         </section>
 
