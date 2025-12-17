@@ -9,7 +9,7 @@ interface ListItemProps {
 
 export default function ListItem({ href, label, Icon }: ListItemProps) {
     return (
-        <li className='flex gap-4 items-center text-lg'>
+        <li className='flex gap-4 items-center text-lg font-medium tracking-wide'>
             <Icon className="size-6 text-white/80" />
             <Link href={href}>{label}</Link>
         </li>
