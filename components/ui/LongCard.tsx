@@ -13,6 +13,7 @@ interface LongCardProps {
     launchDate: string;
     successStatus: boolean;
     details?: string;
+    href?: string;
     bgImage?: string;
 }
 
@@ -27,6 +28,7 @@ export default function LongCard({
     launchDate,
     successStatus,
     details,
+    href,
     bgImage,
 }: LongCardProps) {
 
@@ -56,17 +58,15 @@ export default function LongCard({
             </div>
             {/* Launch info */}
             <header className="flex items-center gap-2">
-                {
-                    patch && (
-                        <picture className="size-10">
-                            <img
-                                src={patch}
-                                alt="launch patch"
-                                className="object-contain w-full h-full"
-                            />
-                        </picture>
-                    )
-                }
+                {patch && (
+                    <picture className="size-10">
+                        <img
+                            src={patch}
+                            alt="launch patch"
+                            className="object-contain w-full h-full"
+                        />
+                    </picture>
+                )}
                 <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                         <span className="text-2xl tracking-tight font-semibold">
@@ -83,24 +83,26 @@ export default function LongCard({
 
             <div className="flex flex-col gap-1">
                 <h4 className="font-medium">Launch Details</h4>
-                {
-                    details ? (
-                        <p className="text-sm leading-tight text-pretty line-clamp-5">
-                            {details}
-                        </p>
-                    ) :
-                        (<p className="text-sm">
-                            Classified… or maybe just unknown.
-                        </p>)
+                {details ? (
+                    <p className="text-sm leading-tight text-pretty line-clamp-5">
+                        {details}
+                    </p>
+                ) :
+                    (<p className="text-sm">
+                        Classified… or maybe just unknown.
+                    </p>)
                 }
             </div>
-            <PrimaryButton
-                text="See more"
-                Icon={ChevronRight}
-                iconClass="-mr-2 stroke-3"
-                textClass="-mr-3"
-                extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
-            />
+
+            {href && (
+                <PrimaryButton
+                    text="See more"
+                    Icon={ChevronRight}
+                    iconClass="-mr-2 stroke-3"
+                    textClass="-mr-3"
+                    extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
+                />
+            )}
         </div>
     );
 }
