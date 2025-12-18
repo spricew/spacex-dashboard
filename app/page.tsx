@@ -6,6 +6,7 @@ import PanelRecentLaunches from '@/components/layout/PanelRecentLaunches';
 import Banner from '@/components/ui/Banner';
 import SquareCard from '@/components/ui/SquareCard';
 import LongCard from '@/components/ui/LongCard';
+import CardUpcoming from '@/components/layout/CardUpcoming';
 
 export default async function Home() {
   const launch = await getLatestLaunch();
@@ -26,7 +27,7 @@ export default async function Home() {
         {/* left side */}
         <section className='grid grid-rows-[130px_1fr] gap-2'>
           <Sidebar />
-          <LongCard 
+          <LongCard
             title="Latest Launch"
             launchName={launch.name}
             id={launch.id}
@@ -34,7 +35,6 @@ export default async function Home() {
             launchDate={launch.date_utc}
             successStatus={launch.success}
             details={launch.details}
-            // details="Minim fugiat laborum duis ad et nisi mollit adipisicing irure. Excepteur enim qui ipsum mollit. Occaecat dolor sint voluptate sint ipsum esse. Dolore pariatur commodo deserunt in. Sint esse Lorem eiusmod dolore."
             bgImage="/test.png" />
         </section>
 
@@ -52,7 +52,9 @@ export default async function Home() {
           <div className='grid grid-cols-[2fr_1fr] gap-2'>
             {/* Recent launches */}
             <PanelRecentLaunches />
-            <SquareCard title="Upcoming Launches" content="Some info about upcoming launches" />
+
+            {/* Upcoming launch */}
+            <CardUpcoming />
           </div>
         </main>
       </div>
