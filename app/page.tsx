@@ -35,7 +35,7 @@ export default async function Home() {
             successStatus={launch.success}
             // details={launch.details}
             details="Minim fugiat laborum duis ad et nisi mollit adipisicing irure. Excepteur enim qui ipsum mollit. Occaecat dolor sint voluptate sint ipsum esse. Dolore pariatur commodo deserunt in. Sint esse Lorem eiusmod dolore."
-            image="/test.png" />
+            bgImage="/test.png" />
         </section>
 
         {/* Main content */}

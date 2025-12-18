@@ -9,7 +9,7 @@ interface LongCardProps {
     launchDate: string;
     successStatus: boolean;
     details?: string;
-    image?: string;
+    bgImage?: string;
 }
 
 const glassCard =
@@ -23,19 +23,19 @@ export default function LongCard({
     launchDate,
     successStatus,
     details,
-    image,
+    bgImage,
 }: LongCardProps) {
 
     return (
         <div
             className={`relative flex flex-col gap-4 w-full h-full p-6 overflow-hidden ${glassCard}`}
         >
-            {image && (
+            {bgImage && (
                 <picture className="absolute inset-0 -z-10 w-full h-full">
                     <img
-                        src={image}
+                        src={bgImage}
                         alt=""
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-fit"
                     />
                 </picture>
             )}
