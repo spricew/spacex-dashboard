@@ -1,7 +1,7 @@
-
 const BASE_URL = 'https://api.spacexdata.com/v5';
 export { BASE_URL };
 
+// get all launches
 export async function getLaunches() {
     const response = await fetch(`${BASE_URL}/launches`);
 
@@ -13,6 +13,7 @@ export async function getLaunches() {
     return data;
 }
 
+// get recent launches (with limit)
 export async function getRecentLaunches() {
     const res = await fetch(
         `${BASE_URL}/launches/query`,
@@ -45,13 +46,26 @@ export async function getRecentLaunches() {
     return launches;
 }
 
+// get the latest launch
 export async function getLatestLaunch() {
     const response = await fetch(`${BASE_URL}/launches/latest`);
 
     if (!response.ok) {
-        throw new Error('Failed to fetch latest launches');
+        throw new Error('Failed to fetch latest launch');
     }
 
     const data = await response.json();
     return data;
+}
+
+// get the next launch
+export async function getUpcomingLaunch() {
+    const response = await fetch(`${BASE_URL}/launches/upcoming`);
+  
+    if (!response.ok) {
+      throw new Error('Failed to fetch upcoming launch');
+    }
+  
+    const data = await response.json();
+    return data[0];
 }
