@@ -82,16 +82,18 @@ export default function LongCard({
                             {details}
                         </p>
                     ) :
-                        (<p className="text-sm text-justify">
+                        (<p className="text-sm">
                             Classified… or maybe just unknown.
                         </p>)
                 }
             </div>
             <PrimaryButton
-            text="ola"
-            Icon={ChevronRight} 
-            iconClass="-mr-2"
-            textClass="-mr-3"/>
+                text="See more"
+                Icon={ChevronRight}
+                iconClass="-mr-2 stroke-3"
+                textClass="-mr-3"
+                extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
+            />
         </div>
     );
 }
