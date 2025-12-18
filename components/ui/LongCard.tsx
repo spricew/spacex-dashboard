@@ -1,3 +1,4 @@
+import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 
 interface LongCardProps {
@@ -5,6 +6,7 @@ interface LongCardProps {
     launchName: string;
     id: string;
     patch?: string;
+    launchDate: string;
     successStatus: boolean;
     details?: string;
     image?: string;
@@ -18,6 +20,7 @@ export default function LongCard({
     launchName,
     id,
     patch,
+    launchDate,
     successStatus,
     details,
     image,
@@ -37,11 +40,14 @@ export default function LongCard({
                 </picture>
             )}
 
-            {/* Title */}
-            <h3 className="text-xl tracking-tight font-medium">
-                {title}
-            </h3>
+            <div className="flex flex-col gap-1">
+                {/* Title */}
+                <h3 className="text-xl tracking-tight font-medium">
+                    {title}
+                </h3>
+                <span className="text-sm font-medium">{formatDate(launchDate)}</span>
 
+            </div>
             {/* Launch info */}
             <header className="flex items-center gap-2">
                 {
