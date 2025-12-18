@@ -24,13 +24,14 @@ export default async function Home() {
       <div className="grid grid-cols-[350px_1fr] gap-2 flex-1 p-2">
 
         {/* left side */}
-        <section className='grid grid-rows-[150px_1fr] gap-2'>
+        <section className='grid grid-rows-[130px_1fr] gap-2'>
           <Sidebar />
           <LongCard 
             title="Latest Launch"
             launchName={launch.name}
             id={launch.id}
             patch={launch.links.patch.small}
+            launchDate={launch.date_utc}
             successStatus={launch.success}
             // details={launch.details}
             details="Minim fugiat laborum duis ad et nisi mollit adipisicing irure. Excepteur enim qui ipsum mollit. Occaecat dolor sint voluptate sint ipsum esse. Dolore pariatur commodo deserunt in. Sint esse Lorem eiusmod dolore."
