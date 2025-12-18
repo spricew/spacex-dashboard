@@ -4,6 +4,7 @@ interface LongCardProps {
     title: string;
     launchName: string;
     id: string;
+    patch?: string;
     successStatus: boolean;
     details?: string;
     image?: string;
@@ -16,6 +17,7 @@ export default function LongCard({
     title,
     launchName,
     id,
+    patch,
     successStatus,
     details,
     image,
@@ -41,19 +43,31 @@ export default function LongCard({
             </h3>
 
             {/* Launch info */}
-            <header className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                    
-                    <span className="text-2xl tracking-tight font-semibold">
-                        {launchName}
-                    </span>
-                    <Badge status={successStatus} />
+            <header className="flex items-center gap-2">
+                {
+                    patch && (
+                        <picture className="size-10">
+                            <img
+                                src={patch}
+                                alt="launch patch"
+                                className="object-contain w-full h-full"
+                            />
+                        </picture>
+                    )
+                }
+                <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                        <span className="text-2xl tracking-tight font-semibold">
+                            {launchName}
+                        </span>
+                        <Badge status={successStatus} />
+                    </div>
+                    <span className="text-xs font-medium">{id}</span>
                 </div>
-                <span className="text-xs font-medium">{id}</span>
             </header>
 
             <div className="flex flex-col gap-1">
-                <h4>Launch Details</h4>
+                <h4 className="font-medium">Launch Details</h4>
                 {
                     details ? (
                         <p className="text-sm leading-tight text-pretty line-clamp-5">
