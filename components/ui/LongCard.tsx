@@ -2,6 +2,7 @@ import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 import PrimaryButton from "./PrimaryButton";
 import { ChevronRight } from "lucide-react";
+import { KeyRound } from "lucide-react";
 
 interface LongCardProps {
     title: string;
@@ -70,7 +71,10 @@ export default function LongCard({
                         </span>
                         <Badge status={successStatus} />
                     </div>
-                    <span className="text-xs font-medium">{id}</span>
+                    <div className="flex items-center gap-2">
+                        <KeyRound className="size-3.5" />
+                        <span className="text-xs font-medium">{id}</span>
+                    </div>
                 </div>
             </header>
 
