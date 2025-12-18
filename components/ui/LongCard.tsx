@@ -1,5 +1,7 @@
 import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
+import PrimaryButton from "./PrimaryButton";
+import { ChevronRight } from "lucide-react";
 
 interface LongCardProps {
     title: string;
@@ -85,6 +87,11 @@ export default function LongCard({
                         </p>)
                 }
             </div>
+            <PrimaryButton
+            text="ola"
+            Icon={ChevronRight} 
+            iconClass="-mr-2"
+            textClass="-mr-3"/>
         </div>
     );
 }
