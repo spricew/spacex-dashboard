@@ -32,7 +32,6 @@ export default async function PanelRecentLaunches() {
             patch={launch.links.patch.small}
             launchDate={launch.date_utc}
             successStatus={launch.success}
-            // patch={launch.links?.patch?.small}
           />
         ))}
 
