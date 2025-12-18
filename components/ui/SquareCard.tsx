@@ -12,17 +12,13 @@ export default function SquareCard({ title, content, image }: SquareCardProps) {
             backdrop-blur-xl shadow-lg shadow-black/20 overflow-hidden"
         >
             {image && (
-                <>
-                    <picture className="absolute inset-0 -z-10 w-full h-full">
-                        <img
-                            src={image}
-                            alt=""
-                            className="relative object-cover w-full h-full"
-                        />
-                    </picture>
-
-                    {/* <div className="absolute inset-0 -z-5 bg-black/50" /> */}
-                </>
+                <picture className="absolute inset-0 -z-10 w-full h-full">
+                    <img
+                        src={image}
+                        alt=""
+                        className="relative object-cover w-full h-full"
+                    />
+                </picture>
             )}
 
             <h3 className="text-2xl tracking-tight font-medium">
