@@ -24,7 +24,10 @@ export default function PanelRecentLaunches() {
                 <RowCard />
                 <RowCard />
 
-                <PrimaryButton text="See All" Icon={ChevronRight} />
+                <PrimaryButton text="See All" 
+                Icon={ChevronRight} 
+                iconClass="-mr-2"
+                textClass="-mr-3"/>
             </div>
         </section>);
 }
