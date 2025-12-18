@@ -3,6 +3,7 @@ import Badge from "./Badge";
 import PrimaryButton from "./PrimaryButton";
 import { ChevronRight } from "lucide-react";
 import { KeyRound } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 interface LongCardProps {
     title: string;
@@ -48,8 +49,10 @@ export default function LongCard({
                 <h3 className="text-xl tracking-tight font-medium">
                     {title}
                 </h3>
-                <span className="text-sm font-medium">{formatDate(launchDate)}</span>
-
+                <div className="flex items-center gap-2">
+                    <Calendar className="size-4" />
+                    <span className="text-sm font-medium">{formatDate(launchDate)}</span>
+                </div>
             </div>
             {/* Launch info */}
             <header className="flex items-center gap-2">
