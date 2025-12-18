@@ -1,8 +1,7 @@
 import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 
-import { KeyRound } from "lucide-react";
-import { Calendar } from "lucide-react";
+import { KeyRound, Calendar, ChevronRight } from "lucide-react";
 
 interface RowCardProps {
     launchName: string;
@@ -20,22 +19,20 @@ export default function RowCard({
     successStatus,
 }: RowCardProps) {
     return (
-        <div className="p-6
+        <div className="flex items-center justify-between p-6
             rounded-3xl ring ring-inset ring-white/10
            bg-black/40 ">
             {/* Launch info */}
             <header className="flex items-center gap-4">
-                {
-                    patch && (
-                        <picture className="size-12">
-                            <img
-                                src={patch}
-                                alt="launch patch"
-                                className="object-contain w-full h-full"
-                            />
-                        </picture>
-                    )
-                }
+                {patch && (
+                    <div className="size-12">
+                        <img
+                            src={patch}
+                            alt="launch patch"
+                            className="h-full w-full object-contain"
+                        />
+                    </div>
+                )}
                 <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                         <span className="text-2xl tracking-tight font-medium">
@@ -48,15 +45,14 @@ export default function RowCard({
                             <KeyRound className="size-4" />
                             <span className="text-xs font-medium">{id}</span>
                         </div>
-
                         <div className="flex items-center gap-2">
                             <Calendar className="size-4" />
-                            <span className="flex">{formatDate(launchDate)}</span>
+                            {formatDate(launchDate)}
                         </div>
-
                     </div>
                 </div>
             </header>
+            <ChevronRight className="size-10" aria-hidden />
         </div>
     );
 }
