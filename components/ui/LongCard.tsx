@@ -5,6 +5,7 @@ interface LongCardProps {
     launchName: string;
     id: string;
     successStatus: boolean;
+    details?: string;
     image?: string;
 }
 
@@ -16,12 +17,13 @@ export default function LongCard({
     launchName,
     id,
     successStatus,
+    details,
     image,
 }: LongCardProps) {
-    
+
     return (
         <div
-            className={`relative flex flex-col gap-2 w-full h-full p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col gap-4 w-full h-full p-6 overflow-hidden ${glassCard}`}
         >
             {image && (
                 <picture className="absolute inset-0 -z-10 w-full h-full">
@@ -34,23 +36,34 @@ export default function LongCard({
             )}
 
             {/* Title */}
-            <h3 className="text-3xl tracking-tight font-medium">
+            <h3 className="text-xl tracking-tight font-medium">
                 {title}
             </h3>
 
             {/* Launch info */}
-            <div className="flex flex-col gap-1">
+            <header className="flex flex-col gap-1">
                 <div className="flex items-center gap-2">
+                    
                     <span className="text-2xl tracking-tight font-semibold">
                         {launchName}
                     </span>
-
                     <Badge status={successStatus} />
                 </div>
+                <span className="text-xs font-medium">{id}</span>
+            </header>
 
-                <span className="text-xs font-medium">
-                    {id}
-                </span>
+            <div className="flex flex-col gap-1">
+                <h4>Launch Details</h4>
+                {
+                    details ? (
+                        <p className="text-sm leading-tight text-pretty line-clamp-5">
+                            {details}
+                        </p>
+                    ) :
+                        (<p className="text-sm text-justify">
+                            Classified… or maybe just unknown.
+                        </p>)
+                }
             </div>
         </div>
     );
