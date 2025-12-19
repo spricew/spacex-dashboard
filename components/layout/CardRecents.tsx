@@ -1,7 +1,5 @@
 import { getRecentLaunches } from '@/lib/api/spacex';
-
-import { Clock } from 'lucide-react';
-import { ChevronRight } from 'lucide-react';
+import { Clock, ChevronRight } from 'lucide-react';
 
 import RowCard from '@/components/ui/RowCard';
 import PrimaryButton from '@/components/ui/PrimaryButton';
