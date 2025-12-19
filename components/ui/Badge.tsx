@@ -1,9 +1,10 @@
 interface BadgeProps {
     status: boolean;
+    UpcomingState?: boolean;
 }
 
-export default function Badge({ status }: BadgeProps) {
-    const statusStyles = status
+export default function Badge({ status, UpcomingState }: BadgeProps) {
+    let statusStyles = status
         ? {
             badge: 'text-green-400 bg-green-900 ring-green-400/20',
             dot: 'bg-green-400',
@@ -14,6 +15,14 @@ export default function Badge({ status }: BadgeProps) {
             dot: 'bg-red-400',
             label: 'Failed',
         };
+
+    if (UpcomingState) {
+        statusStyles = {
+            badge: 'text-blue-300 bg-blue-900 ring-blue-400/20',
+            dot: 'bg-blue-400',
+            label: 'Upcoming',
+        }
+    }
 
     return (
         <span
