@@ -2,7 +2,7 @@ import { getLatestLaunch } from '@/lib/api/spacex';
 
 import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
-import PanelRecentLaunches from '@/components/layout/PanelRecentLaunches';
+import CardRecents from '@/components/layout/CardRecents';
 import Banner from '@/components/ui/Banner';
 import SquareCard from '@/components/ui/SquareCard';
 import LongCard from '@/components/ui/LongCard';
@@ -35,6 +35,7 @@ export default async function Home() {
             launchDate={launch.date_utc}
             successStatus={launch.success}
             details={launch.details}
+            href='/'
             bgImage="/test.png" />
         </section>
 
@@ -51,7 +52,7 @@ export default async function Home() {
 
           <div className='grid grid-cols-[2fr_1fr] gap-2'>
             {/* Recent launches */}
-            <PanelRecentLaunches />
+            <CardRecents />
 
             {/* Upcoming launch */}
             <CardUpcoming />
