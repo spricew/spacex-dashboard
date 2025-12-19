@@ -1,7 +1,7 @@
 import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 import PrimaryButton from "./PrimaryButton";
-import { ChevronRight, KeyRound, Calendar, CircleQuestionMark } from "lucide-react";
+import { ChevronRight, KeyRound, Calendar, CircleQuestionMark, Rocket } from "lucide-react";
 
 interface LongCardProps {
     title: string;
@@ -12,6 +12,7 @@ interface LongCardProps {
     successStatus: boolean;
     isUpcoming?: boolean;
     details?: string;
+    rocket?: string;
     href?: string;
     bgImage?: string;
 }
@@ -28,6 +29,7 @@ export default function LongCard({
     successStatus,
     isUpcoming,
     details,
+    rocket,
     href,
     bgImage,
 }: LongCardProps) {
@@ -48,9 +50,19 @@ export default function LongCard({
 
             <div className="flex flex-col gap-1">
                 {/* Title */}
-                <h3 className="text-xl tracking-tight font-medium">
-                    {title}
-                </h3>
+                <div className="flex justify-between items-center">
+                    <h3 className="text-xl tracking-tight font-medium">
+                        {title}
+                    </h3>
+                    {rocket && (
+                        <div className="flex gap-1.5 items-center">
+
+                            <Rocket className="size-4" />
+                            <span className="text-base tracking-tight font-medium">{rocket}</span>
+                        </div>
+                    )}
+                </div>
+
                 <div className="flex items-center gap-2">
                     <Calendar className="size-4" />
                     <span className="text-sm font-medium">{formatDate(launchDate)}</span>
@@ -89,12 +101,12 @@ export default function LongCard({
                     </p>
                 ) :
                     (<div className="flex gap-2 items-center">
-                        <CircleQuestionMark className="size-5"/>
+                        <CircleQuestionMark className="size-5" />
                         <p className="text-sm">
                             Classified… or maybe just unknown.
                         </p>
-                    </div>)
-                }
+                    </div>
+                    )}
             </div>
 
             {href && (
