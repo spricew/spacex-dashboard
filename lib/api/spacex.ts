@@ -61,11 +61,21 @@ export async function getLatestLaunch() {
 // get the next launch
 export async function getUpcomingLaunch() {
     const response = await fetch(`${BASE_URL}/launches/upcoming`);
-  
+
     if (!response.ok) {
-      throw new Error('Failed to fetch upcoming launch');
+        throw new Error('Failed to fetch upcoming launch');
     }
-  
+
     const data = await response.json();
     return data[0];
+}
+
+export async function getRocketById(id: string) {
+    const response = await fetch(`https://api.spacexdata.com/v4/rockets/${id}`);
+
+    if(!response.ok) {
+        throw new Error("Failed to fetch rocket");
+    }
+
+    return response.json();
 }
