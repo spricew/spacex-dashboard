@@ -2,15 +2,26 @@ const BASE_URL = 'https://api.spacexdata.com/v5';
 export { BASE_URL };
 
 // get all launches
-export async function getLaunches() {
-    const response = await fetch(`${BASE_URL}/launches`);
+export async function getLaunches(order: 'asc' | 'desc' = 'desc') {
+    const response = await fetch(`${BASE_URL}/launches/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            options: {
+                sort: {
+                    date_utc: order,
+                },
+                limit: 10,
+            },
+        }),
+    });
 
     if (!response.ok) {
         throw new Error('Failed to fetch launches');
     }
 
     const data = await response.json();
-    return data;
+    return data.docs;
 }
 
 // get recent launches (with limit)
@@ -75,7 +86,7 @@ export async function getRocketById(id: string) {
     // fecth using v4 instead of v5 because v5 doesn't include a public endpoint /rockets
     const response = await fetch(`https://api.spacexdata.com/v4/rockets/${id}`);
 
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Failed to fetch rocket");
     }
 
