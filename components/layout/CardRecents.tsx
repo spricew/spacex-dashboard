@@ -33,7 +33,7 @@ export default async function PanelRecentLaunches() {
         </h2>
       </header>
 
-      <div className="flex flex-col gap-2 flex-1">
+      <div className="flex flex-col gap-2">
         {launchesWithRocket.map((launch) => (
           <RowCard
             key={launch.id}
@@ -51,6 +51,7 @@ export default async function PanelRecentLaunches() {
           Icon={ChevronRight}
           iconClass="-mr-2"
           textClass="-mr-3"
+          href="/Launches"
         />
       </div>
     </section>
