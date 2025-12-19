@@ -1,9 +1,7 @@
 import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 import PrimaryButton from "./PrimaryButton";
-import { ChevronRight } from "lucide-react";
-import { KeyRound } from "lucide-react";
-import { Calendar } from "lucide-react";
+import { ChevronRight, KeyRound, Calendar, CircleQuestionMark } from "lucide-react";
 
 interface LongCardProps {
     title: string;
@@ -12,6 +10,7 @@ interface LongCardProps {
     patch?: string;
     launchDate: string;
     successStatus: boolean;
+    isUpcoming?: boolean;
     details?: string;
     href?: string;
     bgImage?: string;
@@ -27,6 +26,7 @@ export default function LongCard({
     patch,
     launchDate,
     successStatus,
+    isUpcoming,
     details,
     href,
     bgImage,
@@ -72,7 +72,7 @@ export default function LongCard({
                         <span className="text-2xl tracking-tight font-semibold">
                             {launchName}
                         </span>
-                        <Badge status={successStatus} />
+                        <Badge status={successStatus} UpcomingState={isUpcoming} />
                     </div>
                     <div className="flex items-center gap-2">
                         <KeyRound className="size-3.5" />
@@ -88,9 +88,12 @@ export default function LongCard({
                         {details}
                     </p>
                 ) :
-                    (<p className="text-sm">
-                        Classified… or maybe just unknown.
-                    </p>)
+                    (<div className="flex gap-2 items-center">
+                        <CircleQuestionMark className="size-5"/>
+                        <p className="text-sm">
+                            Classified… or maybe just unknown.
+                        </p>
+                    </div>)
                 }
             </div>
 
