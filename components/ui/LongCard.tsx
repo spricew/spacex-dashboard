@@ -13,7 +13,7 @@ interface LongCardProps {
     isUpcoming?: boolean;
     details?: string;
     rocket?: string;
-    href?: string;
+    hrefString?: string;
     bgImage?: string;
 }
 
@@ -30,7 +30,7 @@ export default function LongCard({
     isUpcoming,
     details,
     rocket,
-    href,
+    hrefString,
     bgImage,
 }: LongCardProps) {
 
@@ -109,13 +109,14 @@ export default function LongCard({
                     )}
             </div>
 
-            {href && (
+            {hrefString && (
                 <PrimaryButton
                     text="See more"
                     Icon={ChevronRight}
                     iconClass="-mr-2 stroke-3"
                     textClass="-mr-3"
                     extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
+                    href={hrefString}
                 />
             )}
         </div>
