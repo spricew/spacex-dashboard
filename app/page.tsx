@@ -1,15 +1,12 @@
-import { getLatestLaunch } from '@/lib/api/spacex';
-
 import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
 import CardRecents from '@/components/layout/CardRecents';
 import Banner from '@/components/ui/Banner';
 import SquareCard from '@/components/ui/SquareCard';
-import LongCard from '@/components/ui/LongCard';
 import CardUpcoming from '@/components/layout/CardUpcoming';
+import LatestLaunch from '@/components/layout/LatestLaunch';
 
-export default async function Home() {
-  const launch = await getLatestLaunch();
+export default function Home() {
   return (
     <div className="relative flex flex-col h-screen w-full">
       <Header />
@@ -27,16 +24,7 @@ export default async function Home() {
         {/* left side */}
         <section className='grid grid-rows-[130px_1fr] gap-2'>
           <Sidebar />
-          <LongCard
-            title="Latest Launch"
-            launchName={launch.name}
-            id={launch.id}
-            patch={launch.links.patch.small}
-            launchDate={launch.date_utc}
-            successStatus={launch.success}
-            details={launch.details}
-            hrefString='/'
-            bgImage="/test.png" />
+          <LatestLaunch />
         </section>
 
         {/* Main content */}
