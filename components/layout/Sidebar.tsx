@@ -1,6 +1,5 @@
 import ListItem from "@/components/ui/ListItem";
-import { Home } from "lucide-react";
-import { Rocket } from "lucide-react";
+import { Home, Rocket } from "lucide-react";
 
 export default function Sidebar() {
     return (
