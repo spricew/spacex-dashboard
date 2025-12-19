@@ -1,7 +1,7 @@
 import { formatDate } from "@/lib/utils/formatDate";
 import Badge from "./Badge";
 
-import { KeyRound, Calendar, ChevronRight } from "lucide-react";
+import { KeyRound, Calendar, ChevronRight, Rocket } from "lucide-react";
 
 interface RowCardProps {
     launchName: string;
@@ -9,6 +9,7 @@ interface RowCardProps {
     patch?: string;
     launchDate: string;
     successStatus: boolean;
+    rocket: string;
 }
 
 export default function RowCard({
@@ -17,6 +18,7 @@ export default function RowCard({
     patch,
     launchDate,
     successStatus,
+    rocket
 }: RowCardProps) {
     return (
         <div className="flex items-center justify-between p-6
@@ -34,16 +36,29 @@ export default function RowCard({
                     </div>
                 )}
                 <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                        <span className="text-2xl tracking-tight font-medium">
-                            {launchName}
-                        </span>
-                        <Badge status={successStatus} />
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
+
+                            <span className="text-2xl tracking-tight font-medium">
+                                {launchName}
+                            </span>
+                            <Badge status={successStatus} />
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                            {rocket && (
+                                <div className="flex gap-1.5 items-center">
+
+                                    <Rocket className="size-4" />
+                                    <span className="text-base tracking-tight font-medium">{rocket}</span>
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2">
                             <KeyRound className="size-4" />
-                            <span className="text-xs font-medium">{id}</span>
+                            <span className="text-sm font-medium">{id}</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <Calendar className="size-4" />
