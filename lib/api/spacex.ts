@@ -70,7 +70,9 @@ export async function getUpcomingLaunch() {
     return data[0];
 }
 
+// get rocket by id
 export async function getRocketById(id: string) {
+    // fecth using v4 instead of v5 because v5 doesn't include a public endpoint /rockets
     const response = await fetch(`https://api.spacexdata.com/v4/rockets/${id}`);
 
     if(!response.ok) {
