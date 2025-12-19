@@ -1,5 +1,4 @@
-import { getRocketById } from "@/lib/api/spacex";
-import { getUpcomingLaunch } from "@/lib/api/spacex";
+import { getRocketById, getUpcomingLaunch } from "@/lib/api/spacex";
 import LongCard from "@/components/ui/LongCard";
 
 export default async function CardUpcoming() {
