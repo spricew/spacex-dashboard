@@ -35,7 +35,7 @@ export default async function Home() {
             launchDate={launch.date_utc}
             successStatus={launch.success}
             details={launch.details}
-            href='/'
+            hrefString='/'
             bgImage="/test.png" />
         </section>
 
