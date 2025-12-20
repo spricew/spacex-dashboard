@@ -13,6 +13,6 @@ export default async function LatestLaunch() {
             successStatus={launch.success}
             details={launch.details}
             hrefString='/'
-            bgImage="/test.png" />
+            bgImage="/LatestLaunchBg.png" />
     );
 }
