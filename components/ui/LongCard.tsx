@@ -117,7 +117,7 @@ export default function LongCard({
                     iconClass="-mr-2 stroke-3"
                     textClass="-mr-3"
                     extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
-                    href={hrefString}
+                    href={`/Launch/${hrefString}`}
                 />
             )}
         </div>
