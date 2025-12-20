@@ -60,11 +60,11 @@ export default function Card({
                 </div>
             </div>
 
-            <div className="flex  gap-4">
+            <div className="flex gap-4">
                 {rocket && (
                     <div className="flex gap-1.5 items-center">
                         <Rocket className="size-4" />
-                        <span className="text-base tracking-tight font-medium">{rocket}</span>
+                        <span className="text-sm tracking-tight font-medium">{rocket}</span>
                     </div>
                 )}
 
