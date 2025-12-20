@@ -32,9 +32,31 @@ export default function CardProps({
 
     return (
         <div
-            className={`relative flex flex-col flex-1 gap-4 min-w-70 w-80 h-90 p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col flex-1 gap-4 min-w-70 w-80 h-100 p-6 overflow-hidden ${glassCard}`}
         >
+
+            {patch && (
+                <picture className="size-12">
+                    <img
+                        src={patch}
+                        alt="launch patch"
+                        className="object-contain w-full h-full"
+                    />
+                </picture>
+            )}
+            {/* Launch info */}
+                <div className="flex flex-col gap-1">
+                    <span className="text-2xl tracking-tight leading-6.5 line-clamp-2 text-pretty font-semibold ">
+                        {launchName}
+                    </span>
+                    <div className="flex items-center gap-2">
+                        <KeyRound className="size-3.5" />
+                        <span className="text-xs font-medium">{id}</span>
+                    </div>
+                </div>
+
             <div className="flex flex-col gap-1">
+                <Badge status={successStatus} UpcomingState={isUpcoming} />
 
                 {rocket && (
                     <div className="flex gap-1.5 items-center">
@@ -49,30 +71,6 @@ export default function CardProps({
                     <span className="text-sm font-medium">{formatDate(launchDate)}</span>
                 </div>
             </div>
-            {/* Launch info */}
-            <header className="flex items-center gap-2">
-                {patch && (
-                    <picture className="size-10">
-                        <img
-                            src={patch}
-                            alt="launch patch"
-                            className="object-contain w-full h-full"
-                        />
-                    </picture>
-                )}
-                <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                        <span className="text-2xl tracking-tight font-semibold">
-                            {launchName}
-                        </span>
-                        <Badge status={successStatus} UpcomingState={isUpcoming} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <KeyRound className="size-3.5" />
-                        <span className="text-xs font-medium">{id}</span>
-                    </div>
-                </div>
-            </header>
 
             <div className="flex flex-col gap-1">
                 <h4 className="font-medium">Launch Details</h4>
@@ -81,7 +79,7 @@ export default function CardProps({
                         {details}
                     </p>
                 ) :
-                    (<div className="flex gap-2 items-center">
+                    (<div className="flex items-center gap-2 p-4 bg-white/10 rounded-xl">
                         <CircleQuestionMark className="size-5" />
                         <p className="text-sm">
                             Classified… or maybe just unknown.
