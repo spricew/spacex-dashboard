@@ -1,5 +1,4 @@
-import { getLaunchById } from "@/lib/api/spacex";
-import { getRocketById } from "@/lib/api/spacex";
+import { getLaunchById, getRocketById } from "@/lib/api/spacex";
 import { formatDate } from "@/lib/utils/formatDate";
 
 import Navbar from "@/components/layout/Navbar";
