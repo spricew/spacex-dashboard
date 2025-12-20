@@ -22,17 +22,17 @@ export default async function PanelRecentLaunches() {
     'rounded-3xl ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20';
 
   return (
-    <section className={`flex flex-col gap-4 p-6 ${glassCard}`}>
+    <section className={`flex flex-1 flex-col gap-4 p-6 ${glassCard} h-full ovehi`}>
       <header className="flex items-center gap-2">
-        <span className={`flex size-12 items-center justify-center rounded-full ${glassCard}`}>
-          <Clock className="w-6 h-6 text-white/80" />
+        <span className={`flex p-2 rounded-full ${glassCard}`}>
+          <Clock className="size-6 text-white/80" />
         </span>
-        <h2 className="text-3xl tracking-tight font-medium">
+        <h2 className="text-2xl tracking-tight font-medium">
           Recent Launches
         </h2>
       </header>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 h-full">
         {launchesWithRocket.map((launch) => (
           <RowCard
             key={launch.id}
@@ -42,17 +42,18 @@ export default async function PanelRecentLaunches() {
             launchDate={launch.date_utc}
             successStatus={launch.success}
             rocket={launch.rocketName}
+            flightNum={launch.flight_number}
           />
         ))}
-
-        <PrimaryButton
-          text="See All"
-          Icon={ChevronRight}
-          iconClass="-mr-2"
-          textClass="-mr-3"
-          href="/Launches"
-        />
       </div>
+      <PrimaryButton
+        text="See All"
+        Icon={ChevronRight}
+        iconClass="-mr-2"
+        textClass="-mr-3"
+        extraClass='self-end'
+        href="/Launches"
+      />
     </section>
   );
 }
