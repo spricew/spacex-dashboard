@@ -4,7 +4,7 @@ import { formatDate } from "@/lib/utils/formatDate";
 import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
 
-import { KeyRound, Calendar, Rocket, CircleCheck} from "lucide-react";
+import { KeyRound, Calendar, Rocket, CircleCheck } from "lucide-react";
 
 interface LaunchPageProps {
     params: Promise<{ id: string }>;
@@ -18,6 +18,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
     // youtube video link
     const embedUrl = `https://www.youtube.com/embed/${launch.links.youtube_id}`;
     const cardStyles = "ring ring-inset ring-white/10 rounded-3xl";
+
     return (
         <div className="flex flex-col h-screen w-full">
 
@@ -37,7 +38,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                             <h1 className="text-3xl font-semibold tracking-tight">
                                 {launch.name}
                             </h1>
-                            <span className="flex items- gap-1 text-sm text-white/50">
+                            <span className="flex gap-1 text-sm text-white/50">
                                 <KeyRound className="size-4" />
                                 {launch.id}
                             </span>
@@ -50,7 +51,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                     {/* Meta info */}
                     <section className="flex flex-wrap gap-6 text-sm">
                         <div>
-                            <span className="flex items- gap-1 text-white/50">
+                            <span className="flex gap-1 text-white/50">
                                 <Calendar className="size-4" />
                                 Date
                             </span>
@@ -58,16 +59,15 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                         </div>
 
                         <div>
-                            <span className="flex items- gap-1 text-white/50">
+                            <span className="flex gap-1 text-white/50">
                                 <CircleCheck className="size-4" />
-
                                 Status
                             </span>
                             <Badge status={launch.success} />
                         </div>
 
                         <div>
-                            <span className="flex items- gap-1 text-white/50">
+                            <span className="flex gap-1 text-white/50">
                                 <Rocket className="size-4" />
                                 Rocket
                             </span>
