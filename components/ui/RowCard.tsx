@@ -40,7 +40,7 @@ export default function RowCard({
                 <div className="flex flex-col gap-1">
                     <div className="flex flex-col">
                         <div className="flex items-center gap-2">
-                            <span className="text-2xl tracking-tight font-medium">
+                            <span className="text-2xl tracking-tight font-medium line-clamp-1">
                                 {launchName}
                             </span>
                             <Badge status={successStatus} />
