@@ -12,7 +12,7 @@ export default async function LatestLaunch() {
             launchDate={launch.date_utc}
             successStatus={launch.success}
             details={launch.details}
-            hrefString='/'
+            hrefString={`/Launch/${launch.id}`}
             bgImage="/LatestLaunchBg.png" />
     );
 }
