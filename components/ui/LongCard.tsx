@@ -100,7 +100,8 @@ export default function LongCard({
                         {details}
                     </p>
                 ) :
-                    (<div className="flex gap-2 items-center">
+                    (<div className="flex items-center gap-2 p-4 bg-white/10 rounded-xl">
+
                         <CircleQuestionMark className="size-5" />
                         <p className="text-sm">
                             Classified… or maybe just unknown.
