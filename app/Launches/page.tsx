@@ -31,7 +31,7 @@ export default async function Launches() {
                 <h2 className="text-3xl tracking-tight font-medium">
                     Recent Launches
                 </h2>
-                <main className="flex flex-wrap justify-center gap-4 h-fit w-[80em]">
+                <main className="flex flex-wrap justify-center gap-4">
                     {launchesWithRocket.map((launch) => (
                         <Card
                             key={launch.id}
