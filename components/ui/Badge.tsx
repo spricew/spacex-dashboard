@@ -26,7 +26,7 @@ export default function Badge({ status, UpcomingState }: BadgeProps) {
 
     return (
         <span
-            className={`flex items-center px-1.5 py-0.5 text-xs font-medium rounded-full ring ring-inset ${statusStyles.badge}`}
+            className={`flex items-center w-fit px-1.5 py-0.5 text-xs font-medium rounded-full ring ring-inset ${statusStyles.badge}`}
         >
             <span
                 className={`mr-1 inline-block size-1.5 rounded-full ${statusStyles.dot}`}
