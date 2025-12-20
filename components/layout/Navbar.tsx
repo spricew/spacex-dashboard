@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex justify-between items-center px-12 py-6
       bg-primary-800 shadow-lg">
 
-      <Link href={"/"} >
+      <Link href={"/"} className="transition ease-out duration-300 hover:scale-105">
         <Image
           src="/SpaceX-White-Logo.svg"
           alt="SpaceX Logo"
