@@ -32,7 +32,7 @@ export default function CardProps({
 
     return (
         <div
-            className={`relative flex flex-col gap-4 w-70 h-80 p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col flex-1 gap-4 min-w-70 w-80 h-90 p-6 overflow-hidden ${glassCard}`}
         >
             <div className="flex flex-col gap-1">
 
@@ -92,7 +92,7 @@ export default function CardProps({
 
             {hrefString && (
                 <PrimaryButton
-                    text="See more"
+                    text="See details"
                     Icon={ChevronRight}
                     iconClass="-mr-2 stroke-3"
                     textClass="-mr-3"
