@@ -81,15 +81,15 @@ export async function getLatestLaunch() {
 }
 
 // get the next launch
-export async function getUpcomingLaunch() {
-    const response = await fetch(`${BASE_URL}/launches/upcoming`);
+export async function getNextLaunch() {
+    const response = await fetch(`${BASE_URL}/launches/next`);
 
     if (!response.ok) {
-        throw new Error('Failed to fetch upcoming launch');
+        throw new Error('Failed to fetch next launch');
     }
 
     const data = await response.json();
-    return data[0];
+    return data;
 }
 
 // get rocket by id
