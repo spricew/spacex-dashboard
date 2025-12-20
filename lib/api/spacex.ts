@@ -1,6 +1,17 @@
 const BASE_URL = 'https://api.spacexdata.com/v5';
 export { BASE_URL };
 
+// get launches by id
+export async function getLaunchById(id: string) {
+    const response = await fetch(`${BASE_URL}/launches/${id}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch launches');
+    }
+    
+    const data = await response.json();
+    return data;
+}
+
 // get all launches
 export async function getLaunches(order: 'asc' | 'desc' = 'desc') {
     const response = await fetch(`${BASE_URL}/launches/query`, {
@@ -11,7 +22,7 @@ export async function getLaunches(order: 'asc' | 'desc' = 'desc') {
                 sort: {
                     date_utc: order,
                 },
-                limit: 30,
+                limit: 52,
             },
         }),
     });
