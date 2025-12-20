@@ -18,7 +18,7 @@ interface CardProps {
 const glassCard =
     'rounded-3xl ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20';
 
-export default function CardProps({
+export default function Card({
     launchName,
     id,
     patch,
@@ -32,41 +32,43 @@ export default function CardProps({
 
     return (
         <div
-            className={`relative flex flex-col flex-1 gap-4 min-w-70 w-80 h-100 p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col flex-1 gap-4 min-w-72 w-80 h-100 p-6 overflow-hidden ${glassCard}`}
         >
 
-            {patch && (
-                <picture className="size-12">
-                    <img
-                        src={patch}
-                        alt="launch patch"
-                        className="object-contain w-full h-full"
-                    />
-                </picture>
-            )}
-            {/* Launch info */}
-                <div className="flex flex-col gap-1">
-                    <span className="text-2xl tracking-tight leading-6.5 line-clamp-2 text-pretty font-semibold ">
-                        {launchName}
-                    </span>
-                    <div className="flex items-center gap-2">
-                        <KeyRound className="size-3.5" />
-                        <span className="text-xs font-medium">{id}</span>
-                    </div>
-                </div>
-
-            <div className="flex flex-col gap-1">
+            <div className="flex justify-between items-start">
+                {patch && (
+                    <picture className="size-12">
+                        <img
+                            src={patch}
+                            alt="launch patch"
+                            className="object-contain w-full h-full"
+                        />
+                    </picture>
+                )}
                 <Badge status={successStatus} UpcomingState={isUpcoming} />
 
+            </div>
+
+            {/* Launch info */}
+            <div className="flex flex-col gap-1">
+                <span className="text-2xl tracking-tight leading-6.5 line-clamp-2 text-pretty font-semibold ">
+                    {launchName}
+                </span>
+                <div className="flex items-center gap-2">
+                    <KeyRound className="size-3.5" />
+                    <span className="text-xs font-medium">{id}</span>
+                </div>
+            </div>
+
+            <div className="flex  gap-4">
                 {rocket && (
                     <div className="flex gap-1.5 items-center">
-
                         <Rocket className="size-4" />
                         <span className="text-base tracking-tight font-medium">{rocket}</span>
                     </div>
                 )}
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                     <Calendar className="size-4" />
                     <span className="text-sm font-medium">{formatDate(launchDate)}</span>
                 </div>
