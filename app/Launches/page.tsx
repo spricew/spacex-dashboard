@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Navbar from "@/components/layout/Navbar";
 import Card from "@/components/ui/Card";
 import { getLaunches } from "@/lib/api/spacex"
 import { getRocketById } from "@/lib/api/spacex";
@@ -16,10 +16,10 @@ export default async function Launches() {
     );
 
     return (
-        <div className="flex flex-col h-screen">
-            <Header />
+        <div className="flex flex-col">
+            <Navbar />
 
-            <picture className="fixed inset-0 -z-50 w-full h-full">
+            <picture className="fixed inset-0 -z-50 w-full h-screen">
                 <img
                     src="/earthBg.jpg"
                     className="object-cover w-full h-full"
@@ -27,7 +27,7 @@ export default async function Launches() {
                 />
             </picture>
 
-            <div className="flex flex-col gap-6 px-24 py-18 ">
+            <div className="flex flex-col gap-6 px-24 py-18">
                 <h2 className="text-3xl tracking-tight font-medium">
                     Recent Launches
                 </h2>
