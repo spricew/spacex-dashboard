@@ -11,7 +11,7 @@ export async function getLaunches(order: 'asc' | 'desc' = 'desc') {
                 sort: {
                     date_utc: order,
                 },
-                limit: 10,
+                limit: 30,
             },
         }),
     });
