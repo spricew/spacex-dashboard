@@ -1,4 +1,4 @@
-import Header from '@/components/layout/Header';
+import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Sidebar';
 import CardRecents from '@/components/layout/CardRecents';
 import Banner from '@/components/ui/Banner';
@@ -9,7 +9,7 @@ import LatestLaunch from '@/components/layout/LatestLaunch';
 export default function Home() {
   return (
     <div className="relative flex flex-col h-screen w-full">
-      <Header />
+      <Navbar />
 
       <picture className="absolute inset-0 -z-50 w-full h-full">
         <img
