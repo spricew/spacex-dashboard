@@ -42,7 +42,7 @@ export default async function Launches() {
                             rocket={launch.rocketName}
                             successStatus={launch.success}
                             details={launch.details}
-                            hrefString='/'
+                            hrefString={`/Launch/${launch.id}`}
                         />
                     ))}
                 </main>
