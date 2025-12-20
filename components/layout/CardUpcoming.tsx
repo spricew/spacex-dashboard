@@ -1,8 +1,8 @@
-import { getRocketById, getUpcomingLaunch } from "@/lib/api/spacex";
+import { getRocketById, getNextLaunch } from "@/lib/api/spacex";
 import LongCard from "@/components/ui/LongCard";
 
 export default async function CardUpcoming() {
-    const launch = await getUpcomingLaunch();
+    const launch = await getNextLaunch();
     const rocket = await getRocketById(launch.rocket);
 
     return (
