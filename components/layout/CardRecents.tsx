@@ -7,7 +7,6 @@ import PrimaryButton from '@/components/ui/PrimaryButton';
 export default async function PanelRecentLaunches() {
   const launches = await getRecentLaunches();
 
-  // Resolver rockets en paralelo
   const launchesWithRocket = await Promise.all(
     launches.map(async (launch) => {
       const rocket = await getRocketById(launch.rocket);
