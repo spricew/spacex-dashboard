@@ -43,6 +43,7 @@ export default async function PanelRecentLaunches() {
             successStatus={launch.success}
             rocket={launch.rocketName}
             flightNum={launch.flight_number}
+            hrefString={launch.id}
           />
         ))}
       </div>

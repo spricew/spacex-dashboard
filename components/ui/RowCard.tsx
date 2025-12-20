@@ -1,4 +1,5 @@
 import { formatDate } from "@/lib/utils/formatDate";
+import Link from "next/link";
 import Badge from "./Badge";
 
 import { KeyRound, Calendar, ChevronRight, Rocket } from "lucide-react";
@@ -11,6 +12,7 @@ interface RowCardProps {
     successStatus: boolean;
     rocket: string;
     flightNum: string;
+    hrefString: string;
 }
 
 export default function RowCard({
@@ -20,7 +22,8 @@ export default function RowCard({
     launchDate,
     successStatus,
     rocket,
-    flightNum
+    flightNum,
+    hrefString
 }: RowCardProps) {
     return (
         <div className="flex flex-1 items-center justify-between p-6
@@ -70,7 +73,10 @@ export default function RowCard({
                     </div>
                 </div>
             </header>
-            <ChevronRight className="size-10" aria-hidden />
+
+            <Link href={`/Launch/${hrefString}`}>
+            <ChevronRight className="size-10" />
+            </Link>
         </div>
     );
 }
