@@ -13,6 +13,7 @@ interface CardProps {
     details?: string;
     rocket?: string;
     hrefString?: string;
+    extraClass?: string;
 }
 
 const glassCard =
@@ -28,11 +29,12 @@ export default function Card({
     details,
     rocket,
     hrefString,
+    extraClass
 }: CardProps) {
 
     return (
         <div
-            className={`relative flex flex-col flex-1 gap-4 min-w-72 w-80 h-100 p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col flex-1 gap-4 min-w-72 w-80 h-100 p-6 overflow-hidden ${extraClass} ${glassCard}`}
         >
 
             <div className="flex justify-between items-start">
