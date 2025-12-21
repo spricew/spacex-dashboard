@@ -1,17 +1,15 @@
 import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Sidebar';
 import CardRecents from '@/components/layout/CardRecents';
-import Banner from '@/components/ui/Banner';
-import SquareCard from '@/components/ui/SquareCard';
 import CardUpcoming from '@/components/layout/CardUpcoming';
 import LatestLaunch from '@/components/layout/LatestLaunch';
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col h-screen w-full">
+    <div className="relative flex flex-col h-fit lg:h-screen w-full">
       <Navbar />
 
-      <picture className="absolute inset-0 -z-50 w-full h-full">
+      <picture className="fixed -z-50 w-full h-full">
         <img
           src="/earthBg.jpg"
           className="object-cover w-full h-full"
@@ -19,24 +17,24 @@ export default function Home() {
         />
       </picture>
 
-      <div className="grid grid-cols-[350px_2fr_1fr] gap-2 flex-1 p-2">
+      <div className="flex-1 h-fit p-4 overflow-y-auto lg:overflow-hidden">
 
-        {/* left side */}
-        <section className='grid grid-rows-[130px_1fr] gap-2'>
-          <Sidebar />
-          <LatestLaunch />
-        </section>
+        <div className="grid gap-2 h-full grid-cols-1 md:grid-cols-[300px_1fr] lg:grid-cols-[350px_2fr_1fr]">
+          {/* left side */}
+          <section className='md:grid grid-rows-[1fr_3fr] gap-2'>
+            <Sidebar />
+            <LatestLaunch />
+          </section>
 
-        {/* Main content */}
-        <main className="flex gap-2">
           {/* Recent launches */}
-          <CardRecents />
-        </main>
-        <div className='grid grid-rows-[2fr_1fr] gap-2'>
-          {/* Upcoming launch */}
-          <CardUpcoming />
+            <CardRecents />
+          <div className='flex flex-col md:grid md:grid-rows-[1fr_1fr] gap-2'>
+            {/* Upcoming launch */}
+            <CardUpcoming />
+            <CardUpcoming />
+          </div>
         </div>
       </div>
     </div>
   );
-}
+} 
