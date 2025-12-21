@@ -36,27 +36,26 @@ export default function LongCard({
 
     return (
         <div
-            className={`relative flex flex-col gap-4 w-full h-full p-6 overflow-hidden ${glassCard}`}
+            className={`relative flex flex-col flex-1 gap-4 w-full min-w-72 h-full p-6 overflow-hidden ${glassCard}`}
         >
             {bgImage && (
                 <picture className="absolute inset-0 -z-10 w-full h-full">
                     <img
                         src={bgImage}
                         alt=""
-                        className="object-cover w-full h-fit"
+                        className="object-cover w-full h-full"
                     />
                 </picture>
             )}
 
             <div className="flex flex-col gap-1">
                 {/* Title */}
-                <div className="flex justify-between items-center">
+                <div className="flex flex-wrap justify-between items-center">
                     <h3 className="text-xl tracking-tight font-medium">
                         {title}
                     </h3>
                     {rocket && (
                         <div className="flex gap-1.5 items-center">
-
                             <Rocket className="size-4" />
                             <span className="text-base tracking-tight font-medium">{rocket}</span>
                         </div>
@@ -100,7 +99,7 @@ export default function LongCard({
                         {details}
                     </p>
                 ) :
-                    (<div className="flex items-center gap-2 p-4 bg-white/10 rounded-xl">
+                    (<div className="flex items-center gap-2 p-4 bg-white/10 backdrop-blur-xs rounded-xl">
 
                         <CircleQuestionMark className="size-5" />
                         <p className="text-sm">
