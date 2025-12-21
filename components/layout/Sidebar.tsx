@@ -3,7 +3,7 @@ import { Home, Rocket } from "lucide-react";
 
 export default function Sidebar() {
     return (
-        <aside className="flex flex-col p-6 rounded-3xl justify-center
+        <aside className="hidden md:flex flex-col p-6 rounded-3xl justify-center
         ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20">
             <nav>
                 <ul className="space-y-4">
