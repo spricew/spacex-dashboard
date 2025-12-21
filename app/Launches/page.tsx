@@ -1,7 +1,8 @@
 import Navbar from "@/components/layout/Navbar";
 import Card from "@/components/ui/Card";
-import { getLaunches } from "@/lib/api/spacex"
-import { getRocketById } from "@/lib/api/spacex";
+import RowCard from "@/components/ui/RowCard";
+
+import { getLaunches, getRocketById } from "@/lib/api/spacex";
 
 export default async function Launches() {
     const launches = await getLaunches();
@@ -27,10 +28,10 @@ export default async function Launches() {
                 />
             </picture>
 
-            <div className="flex flex-col gap-6 px-24 py-18">
-                <h2 className="text-3xl tracking-tight font-medium">
+            <div className="flex flex-col gap-6 px-4 py-8 md:px-24 md:py-18">
+                <h1 className="text-2xl text-center md:text-start md:text-3xl tracking-tight font-medium">
                     Recent Launches
-                </h2>
+                </h1>
                 <main className="flex flex-wrap justify-center gap-4">
                     {launchesWithRocket.map((launch) => (
                         <Card
