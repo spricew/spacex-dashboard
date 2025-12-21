@@ -6,7 +6,7 @@ import LatestLaunch from '@/components/layout/LatestLaunch';
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col h-fit lg:h-screen w-full">
+    <div className="relative flex flex-col h-full lg:h-screen w-full">
       <Navbar />
 
       <picture className="fixed -z-50 w-full h-full">
