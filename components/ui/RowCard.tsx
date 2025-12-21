@@ -13,6 +13,7 @@ interface RowCardProps {
     rocket: string;
     flightNum: string;
     hrefString: string;
+    extraClass?: string;
 }
 
 export default function RowCard({
@@ -23,12 +24,12 @@ export default function RowCard({
     successStatus,
     rocket,
     flightNum,
-    hrefString
+    hrefString,
+    extraClass
 }: RowCardProps) {
     return (
-        <div className="flex flex-1 items-center justify-between p-4 md:p-6
-            rounded-3xl ring ring-inset ring-white/10
-           bg-black/40 ">
+        <div className={`flex flex-1 items-center justify-between p-4 md:p-6
+            rounded-3xl ring ring-inset ring-white/10 bg-black/40 backdrop-blur-xl ${extraClass}`}>
             {/* Launch info */}
             <header className="flex items-center gap-2 md:gap-4">
                 {patch && (
@@ -74,7 +75,7 @@ export default function RowCard({
             </header>
 
             <Link href={`/Launch/${hrefString}`}>
-                <ChevronRight className="size-7 md:size-10 -mx-1" />
+                <ChevronRight className="size-7 md:size-10 -mr-1" />
             </Link>
         </div>
     );
