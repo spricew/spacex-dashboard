@@ -26,11 +26,11 @@ export default function RowCard({
     hrefString
 }: RowCardProps) {
     return (
-        <div className="flex flex-1 items-center justify-between p-6
+        <div className="flex flex-1 items-center justify-between p-4 md:p-6
             rounded-3xl ring ring-inset ring-white/10
            bg-black/40 ">
             {/* Launch info */}
-            <header className="flex items-center gap-4">
+            <header className="flex items-center gap-2 md:gap-4">
                 {patch && (
                     <div className="size-12">
                         <img
@@ -43,39 +43,38 @@ export default function RowCard({
                 <div className="flex flex-col gap-1">
                     <div className="flex flex-col">
                         <div className="flex items-center gap-2">
-                            <span className="text-2xl tracking-tight font-medium line-clamp-1">
-                                {launchName}
+                            <span className="text-lg md:text-2xl tracking-tight font-medium line-clamp-1 w-3/4 shrink">
+                                {launchName} ad dsaads asd asd asd da ads asdad
                             </span>
-                            <Badge status={successStatus} />
+                            <div className="flex gap-1 items-center text-white/60">
+                                <span className="w-full text-nowrap text-xs md:text-base tracking-tight font-medium shrink-0">
+                                    Flight #{flightNum}
+                                </span>
+                            </div>
                         </div>
                         <div className="flex items-center gap-2">
                             <KeyRound className="size-4" />
-                            <span className="text-sm font-medium">{id}</span>
+                            <span className="text-xs md:text-sm font-medium">{id}</span>
                         </div>
                     </div>
-
-
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 items-center text-white/80">
+                        <Badge status={successStatus} extraClass="hidden md:inline" />
                         {rocket && (
-                            <div className="flex gap-1.5 items-center">
+                            <div className="flex gap-1.5 items-center shrink-0">
                                 <Rocket className="size-4" />
-                                <span className="text-base tracking-tight font-medium">{rocket}</span>
+                                <span className="text-xs md:text-base tracking-tight font-medium">{rocket}</span>
                             </div>
                         )}
-                        <div className="flex gap-1.5 items-center">
+                        <div className="flex gap-1.5 items-center shrink-0">
                             <Calendar className="size-4" />
-                            {formatDate(launchDate)}
-                        </div>
-
-                        <div className="flex gap-1 items-center text-white/60">
-                            <span className="text-base tracking-tight font-medium"> #{flightNum}</span>
+                            <span className="text-xs md:text-base tracking-tight font-medium">{formatDate(launchDate)}</span>
                         </div>
                     </div>
                 </div>
             </header>
 
             <Link href={`/Launch/${hrefString}`}>
-            <ChevronRight className="size-10" />
+                <ChevronRight className="size-7 md:size-10 -mx-1" />
             </Link>
         </div>
     );
