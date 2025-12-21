@@ -56,8 +56,8 @@ export default function LongCard({
                     </h3>
                     {rocket && (
                         <div className="flex gap-1.5 items-center">
-                            <Rocket className="size-4" />
-                            <span className="text-base tracking-tight font-medium">{rocket}</span>
+                            <Rocket className="size-4 shrink-0" />
+                            <span className="text-sm md:text-base tracking-tight font-medium">{rocket}</span>
                         </div>
                     )}
                 </div>
