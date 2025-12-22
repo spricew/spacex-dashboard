@@ -35,7 +35,7 @@ export default function RowCard({
                 {/* Launch info */}
                 <header className="flex items-center gap-2 md:gap-4">
                     {patch && (
-                        <div className="size-12">
+                        <div className="flex shrink-0 size-12">
                             <img
                                 src={patch}
                                 alt="launch patch"
@@ -50,7 +50,7 @@ export default function RowCard({
                                     {launchName} ad dsaads asd asd asd da ads asdad
                                 </span>
                                 <div className="flex gap-1 items-center text-white/60">
-                                    <span className="w-full text-nowrap text-xs md:text-base tracking-tight font-medium shrink-0">
+                                    <span className="w-full text-nowrap text-xs md:text-sm tracking-tight font-medium shrink-0">
                                         Flight #{flightNum}
                                     </span>
                                 </div>
