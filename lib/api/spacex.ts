@@ -45,14 +45,11 @@ export async function getRecentLaunches() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                query: {
-                    upcoming: false,
-                },
                 options: {
                     sort: {
                         date_utc: 'desc',
                     },
-                    limit: 6,
+                    limit: 10,
                 },
             }),
         }
