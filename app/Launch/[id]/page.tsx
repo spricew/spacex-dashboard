@@ -23,7 +23,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
         <div className="flex flex-col h-screen w-full">
 
             <Navbar />
-            <div className="grid grid-cols-2 gap-2 px-24 py-18">
+            <div className="grid grid-cols-2 gap-2 px-24 py-18 h-screen">
                 <div className={`flex flex-col gap-4 p-8 ${cardStyles}`}>
                     <header className="flex items-center gap-4">
                         {launch.links.patch.small && (
