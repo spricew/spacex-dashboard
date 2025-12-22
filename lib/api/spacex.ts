@@ -52,7 +52,7 @@ export async function getRecentLaunches() {
                     sort: {
                         date_utc: 'desc',
                     },
-                    limit: 3,
+                    limit: 6,
                 },
             }),
         }
