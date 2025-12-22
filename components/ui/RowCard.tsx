@@ -46,9 +46,9 @@ export default function RowCard({
 
 
                         <div className="flex flex-col gap-1.5">
-                            <div className="flex items-start gap-2">
+                            <div className="flex items-center gap-2">
                                 <span className="text-lg md:text-2xl shrink 
-                                tracking-tight font-medium leading-6 line-clamp-1 md:line-clamp-2 text-pretty">
+                                tracking-tight font-medium leading-6 line-clamp-1 text-pretty">
                                     {launchName}
                                 </span>
                                 <span className="w-fit text-nowrap text-xs md:text-sm tracking-tight font-medium text-white/60">
