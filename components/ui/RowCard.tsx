@@ -30,7 +30,7 @@ export default function RowCard({
     return (
         <Link href={`/Launch/${hrefString}`} className="transition ease-out duration-300 hover:scale-102">
 
-            <div className={`flex flex-1 items-center justify-between p-4 md:p-6
+            <div className={`flex flex-1 items-center justify-between p-5 md:p-6
             rounded-3xl ring ring-inset ring-white/10 bg-black/40 backdrop-blur-xl ${extraClass}`}>
                 {/* Launch info */}
                 <header className="flex items-center gap-2 md:gap-4">
