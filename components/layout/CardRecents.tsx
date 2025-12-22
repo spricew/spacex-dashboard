@@ -22,15 +22,15 @@ export default async function PanelRecentLaunches() {
     'rounded-3xl ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20';
 
   return (
-    <main className={`flex flex-1 flex-col gap-4 md:min-w-140 p-4 md:p-6 ${glassCard} h-full overflow-y-auto`}>
+    <main className={`flex flex-1 flex-col gap-4 md:min-w-140 p-4 md:px-6 h-full overflow-y-auto`}>
       <section className='flex flex-col gap-4'>
         <header className="flex items-center gap-2">
           <span className={`flex p-2 rounded-full ${glassCard}`}>
             <Clock className="size-6 text-white/80" />
           </span>
-          <h2 className="text-2xl tracking-tight font-medium">
+          <h1 className="text-2xl md:text-3xl tracking-tight font-medium">
             Recent Launches
-          </h2>
+          </h1>
         </header>
 
         <div className="flex flex-col gap-2 h-full">

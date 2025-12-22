@@ -17,22 +17,17 @@ export default function Home() {
         />
       </picture>
 
-      <div className="flex-1 h-fit p-4 overflow-y-auto lg:overflow-hidden">
+      <div className="flex-1 h-fit overflow-y-auto lg:overflow-hidden">
 
-        <div className="grid gap-2 h-full grid-cols-1 md:grid-cols-[300px_1fr] lg:grid-cols-[350px_2fr_1fr]">
+        <div className="grid h-full grid-cols-1 md:grid-cols-[350px_1fr]">
           {/* left side */}
-          <section className='md:grid grid-rows-[1fr_3fr] gap-2'>
+          <section className='md:grid grid-rows-[1fr_3fr] gap-2 py-4 pl-4'>
             <Sidebar />
             <LatestLaunch />
           </section>
 
           {/* Recent launches */}
             <CardRecents />
-          <div className='flex flex-col md:grid md:grid-rows-[1fr_1fr] gap-2'>
-            {/* Upcoming launch */}
-            <CardUpcoming />
-            <CardUpcoming />
-          </div>
         </div>
       </div>
     </div>
