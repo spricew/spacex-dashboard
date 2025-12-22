@@ -76,7 +76,7 @@ export default function RowCard({
                     </div>
                 </header>
 
-                <ChevronRight className="size-7 md:size-10 -mr-1" />
+                <ChevronRight className="size-7 md:size-10 -mr-1 shrink-0" />
             </div>
         </Link>
     );
