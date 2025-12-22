@@ -27,12 +27,11 @@ export default function Badge({ status, UpcomingState, extraClass }: BadgeProps)
 
     return (
         <span
-            className={`flex items-center h-fit w-fit px-1.5 py-0.5 text-xs font-medium rounded-full ring ring-inset 
+            className={`flex flex-nowrap items-center h-fit w-fit px-1.5 py-0.5 
+             rounded-full ring ring-inset text-xs font-medium text-nowrap
             ${extraClass} ${statusStyles.badge}`}
         >
-            <span
-                className={`mr-1 inline-block size-1.5 rounded-full ${statusStyles.dot}`}
-            />
+            <span className={`mr-1 inline-block size-1.5 rounded-full ${statusStyles.dot}`}/>
             {statusStyles.label}
         </span>
     );
