@@ -29,7 +29,6 @@ export default function RowCard({
 }: RowCardProps) {
     return (
         <Link href={`/Launch/${hrefString}`} className="transition ease-out duration-300 hover:scale-102">
-
             <div className={`flex flex-1 items-center justify-between p-5 md:p-6
             rounded-3xl ring ring-inset ring-white/10 bg-black/40 backdrop-blur-xl ${extraClass}`}>
                 {/* Launch info */}
@@ -46,18 +45,17 @@ export default function RowCard({
                     <div className="flex flex-col gap-1">
                         <div className="flex flex-col">
                             <div className="flex items-center gap-2">
-                                <span className="text-lg md:text-2xl tracking-tight font-medium line-clamp-1 w-3/4 shrink">
-                                    {launchName} ad dsaads asd asd asd da ads asdad
+                                <span className="text-lg md:text-2xl w-fit max-w-3/4 shrink 
+                                tracking-tight font-medium leading-relaxed line-clamp-2">
+                                    {launchName}
                                 </span>
-                                <div className="flex gap-1 items-center text-white/60">
-                                    <span className="w-full text-nowrap text-xs md:text-sm tracking-tight font-medium shrink-0">
-                                        Flight #{flightNum}
-                                    </span>
-                                </div>
+                                <span className="w-fit text-nowrap text-xs md:text-sm tracking-tight font-medium text-white/60">
+                                    Flight #{flightNum}
+                                </span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <KeyRound className="size-4" />
-                                <span className="text-xs md:text-sm font-medium">{id}</span>
+                                <span className="text-xs md:text-xs lg:text-sm font-medium">{id}</span>
                             </div>
                         </div>
                         <div className="flex gap-2 items-center text-white/80">
@@ -65,12 +63,12 @@ export default function RowCard({
                             {rocket && (
                                 <div className="flex gap-1.5 items-center shrink-0">
                                     <Rocket className="size-4" />
-                                    <span className="text-xs md:text-base tracking-tight font-medium">{rocket}</span>
+                                    <span className="text-xs md:text-sm lg:text-base tracking-tight font-medium">{rocket}</span>
                                 </div>
                             )}
                             <div className="flex gap-1.5 items-center shrink-0">
                                 <Calendar className="size-4" />
-                                <span className="text-xs md:text-base tracking-tight font-medium">{formatDate(launchDate)}</span>
+                                <span className="text-xs md:text-sm lg:text-base tracking-tight font-medium">{formatDate(launchDate)}</span>
                             </div>
                         </div>
                     </div>
