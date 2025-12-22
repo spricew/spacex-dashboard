@@ -17,11 +17,11 @@ export default function Home() {
         />
       </picture>
 
-      <div className="flex-1 h-fit overflow-y-auto lg:overflow-hidden">
+      <div className="flex-1 h-fit p-4 md:p-0 overflow-y-auto lg:overflow-hidden">
 
         <div className="grid h-full grid-cols-1 md:grid-cols-[350px_1fr]">
           {/* left side */}
-          <section className='md:grid grid-rows-[1fr_3fr] gap-2 py-4 pl-4'>
+          <section className='md:grid grid-rows-[1fr_3fr] gap-2 md:py-4 md:pl-4'>
             <Sidebar />
             <LatestLaunch />
           </section>
