@@ -66,12 +66,13 @@ export default async function Launches() {
                             </div>
                         </React.Fragment>
                     ))}
-                    <PrimaryButton 
-                    text="load more"
-                    Icon={ChevronRight}
-                    iconClass="-mr-2"
-                    />
                 </main>
+                <PrimaryButton
+                    text="Load more"
+                    icon={<ChevronRight className="size-5 stroke-3 -mr-2" />}
+                    textClass="text-lg"
+                    extraClass="self-end"
+                />
             </div>
         </div>
     );
