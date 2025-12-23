@@ -100,7 +100,7 @@ export default function List({ initialLaunches }: ListProps) {
             isLoading ? (
               <Loader2 className="size-5 animate-spin" />
             ) : (
-              <ChevronRight className="size-5 stroke-3 -mr-1" />
+              <ChevronRight className="size-5 stroke-3 -ml-1 -mr-1" />
             )
           }
           textClass="text-lg"
