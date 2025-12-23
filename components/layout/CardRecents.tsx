@@ -53,7 +53,7 @@ export default async function PanelRecentLaunches() {
         text="See All"
         Icon={ChevronRight}
         iconClass="-mr-2"
-        textClass="-mr-3"
+        textClass="-mr-1"
         extraClass='self-end'
         href="/Launches"
       />

@@ -22,7 +22,7 @@ export default function PrimaryButton({
     const content = (
         <>
             <span className={textClass}>{text}</span>
-            <Icon className={`ml-2 size-5 ${iconClass}`} />
+            <Icon className={`size-5 stroke-3 ${iconClass}`} />
         </>
     );
 

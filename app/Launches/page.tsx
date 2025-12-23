@@ -1,6 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Card from "@/components/ui/Card";
 import RowCard from "@/components/ui/RowCard";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+
+import { ChevronRight } from "lucide-react";
 
 import { getLaunches, getRocketById } from "@/lib/api/spacex";
 import React from "react";
@@ -49,7 +52,6 @@ export default async function Launches() {
                                 />
                             </div>
 
-                            
                             <div className="hidden md:flex flex-1 w-72">
                                 <Card
                                     launchName={launch.name}
@@ -62,9 +64,13 @@ export default async function Launches() {
                                     hrefString={`/Launch/${launch.id}`}
                                 />
                             </div>
-
                         </React.Fragment>
                     ))}
+                    <PrimaryButton 
+                    text="load more"
+                    Icon={ChevronRight}
+                    iconClass="-mr-2"
+                    />
                 </main>
             </div>
         </div>
