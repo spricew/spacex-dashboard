@@ -51,8 +51,7 @@ export default async function PanelRecentLaunches() {
       </section>
       <PrimaryButton
         text="See All"
-        Icon={ChevronRight}
-        iconClass="-mr-2"
+        icon={<ChevronRight className="size-5 stroke-3 -mr-2" />}
         textClass="-mr-1"
         extraClass='self-end'
         href="/Launches"

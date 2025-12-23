@@ -112,8 +112,7 @@ export default function LongCard({
             {hrefString && (
                 <PrimaryButton
                     text="See more"
-                    Icon={ChevronRight}
-                    iconClass="-mr-2"
+                    icon={<ChevronRight className="size-5 stroke-3 -mr-2" />}
                     textClass="-mr-1"
                     extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
                     href={`/Launch/${hrefString}`}
