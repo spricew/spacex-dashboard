@@ -95,8 +95,7 @@ export default function Card({
             {hrefString && (
                 <PrimaryButton
                     text="See details"
-                    icon={<ChevronRight className="size-5 stroke-3 -mr-2" />}
-                    textClass="-mr-1"
+                    icon={<ChevronRight className="size-5 stroke-3 -ml-1 -mr-2" />}
                     extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
                     href={hrefString}
                 />
