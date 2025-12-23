@@ -28,7 +28,7 @@ export default function RowCard({
     extraClass
 }: RowCardProps) {
     return (
-        <Link href={`/Launch/${hrefString}`} className="w-full transition ease-out duration-300 hover:scale-102">
+        <Link href={`/Launch/${hrefString}`} className="w-full md:w-fit transition ease-out duration-300 hover:scale-102">
             <div className={`flex flex-1 items-center justify-between gap-1 p-5 md:p-6
             rounded-3xl ring ring-inset ring-white/10 bg-black/40 backdrop-blur-xl ${extraClass}`}>
                 {/* Launch info */}

@@ -33,33 +33,36 @@ export default async function Launches() {
                 <h1 className="text-2xl text-center md:text-start md:text-3xl tracking-tight font-medium">
                     Recent Launches
                 </h1>
-                <main className="flex flex-wrap justify-center gap-1 md:gap-4">
+                <main className="flex flex-wrap justify-center gap-1 md:gap-2 w-full">
                     {launchesWithRocket.map((launch) => (
                         <React.Fragment key={launch.id}>
-                            <Card
-                                launchName={launch.name}
-                                id={launch.id}
-                                patch={launch.links.patch.small}
-                                launchDate={launch.date_utc}
-                                rocket={launch.rocketName}
-                                successStatus={launch.success}
-                                details={launch.details}
-                                hrefString={`/Launch/${launch.id}`}
-                                extraClass="hidden md:flex"
-                            />
+                            <div className="w-full md:hidden">
+                                <RowCard
+                                    launchName={launch.name}
+                                    id={launch.id}
+                                    patch={launch.links.patch.small}
+                                    launchDate={launch.date_utc}
+                                    successStatus={launch.success}
+                                    rocket={launch.rocketName}
+                                    flightNum={launch.flight_number}
+                                    hrefString={launch.id}
+                                />
+                            </div>
 
-                            <RowCard
-                                key={launch.id}
-                                launchName={launch.name}
-                                id={launch.id}
-                                patch={launch.links.patch.small}
-                                launchDate={launch.date_utc}
-                                successStatus={launch.success}
-                                rocket={launch.rocketName}
-                                flightNum={launch.flight_number}
-                                hrefString={launch.id}
-                                extraClass="flex md:hidden"
-                            />
+                            
+                            <div className="hidden md:flex flex-1 w-72">
+                                <Card
+                                    launchName={launch.name}
+                                    id={launch.id}
+                                    patch={launch.links.patch.small}
+                                    launchDate={launch.date_utc}
+                                    rocket={launch.rocketName}
+                                    successStatus={launch.success}
+                                    details={launch.details}
+                                    hrefString={`/Launch/${launch.id}`}
+                                />
+                            </div>
+
                         </React.Fragment>
                     ))}
                 </main>
