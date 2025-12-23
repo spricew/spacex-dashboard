@@ -77,7 +77,7 @@ export default function Card({
             </div>
 
             <div className="flex flex-col gap-1">
-                <h4 className="font-medium">Launch Details</h4>
+                <h4 className="font-medium">Mission Details</h4>
                 {details ? (
                     <p className="text-sm leading-tight text-pretty line-clamp-5">
                         {details}
