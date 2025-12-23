@@ -1,17 +1,26 @@
-import { ElementType } from "react";
+"use client";
+
+import { ReactNode } from "react";
+import Link from "next/link";
 
 interface PrimaryButtonProps {
     text: string;
-    Icon: ElementType;
+    icon?: ReactNode; 
     href?: string;
-    iconClass?: string;
     textClass?: string;
     extraClass?: string;
     gap?: string;
+    onClick?: () => void;
 }
 
 export default function PrimaryButton({
-    text, Icon, href, iconClass, gap = "gap-2", textClass, extraClass
+    text, 
+    icon,
+    href, 
+    gap = "gap-2", 
+    textClass, 
+    extraClass, 
+    onClick
 }: PrimaryButtonProps) {
 
     const btnClass = `flex items-center w-fit px-4 py-2 ${gap}
@@ -22,16 +31,20 @@ export default function PrimaryButton({
     const content = (
         <>
             <span className={textClass}>{text}</span>
-            <Icon className={`size-5 stroke-3 ${iconClass}`} />
+            {icon}
         </>
     );
 
-    return href ? (
-        <a href={href} className={btnClass}>
-            {content}
-        </a>
-    ) : (
-        <button type="button" className={btnClass}>
+    if (href) {
+        return (
+            <Link href={href} className={btnClass} onClick={onClick}>
+                {content}
+            </Link>
+        );
+    }
+
+    return (
+        <button type="button" className={btnClass} onClick={onClick}>
             {content}
         </button>
     );
