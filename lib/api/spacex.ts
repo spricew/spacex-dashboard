@@ -13,28 +13,37 @@ export async function getLaunchById(id: string) {
 }
 
 // get all launches
-export async function getLaunches(order: 'asc' | 'desc' = 'desc') {
+export async function getLaunches({
+    page = 1,
+    limit = 12,
+    order = 'desc',
+  }: {
+    page?: number;
+    limit?: number;
+    order?: 'asc' | 'desc';
+  }) {
     const response = await fetch(`${BASE_URL}/launches/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            options: {
-                sort: {
-                    date_utc: order,
-                },
-                limit: 36,
-            },
-        }),
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        options: {
+          page,
+          limit,
+          sort: {
+            date_utc: order,
+          },
+        },
+      }),
     });
-
+  
     if (!response.ok) {
-        throw new Error('Failed to fetch launches');
+      throw new Error('Failed to fetch launches');
     }
-
+  
     const data = await response.json();
-    return data.docs;
-}
-
+    return data;
+  }
+  
 // get recent launches (with limit)
 export async function getRecentLaunches() {
     const res = await fetch(
