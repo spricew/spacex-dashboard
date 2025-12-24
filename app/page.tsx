@@ -1,8 +1,8 @@
 import Navbar from '@/components/layout/Navbar';
-import Sidebar from '@/components/layout/Sidebar';
-import CardRecents from '@/components/layout/CardRecents';
-import CardUpcoming from '@/components/layout/CardUpcoming';
-import LatestLaunch from '@/components/layout/LatestLaunch';
+import Sidebar from '@/components/layout/Home/Sidebar';
+import CardRecents from '@/components/layout/Home/CardRecents';
+import CardUpcoming from '@/components/layout/Home/CardUpcoming';
+import LatestLaunch from '@/components/layout/Home/LatestLaunch';
 
 export default function Home() {
   return (
