@@ -57,7 +57,7 @@ export default function Card({
                     {launchName}
                 </span>
                 <div className="flex items-center gap-2">
-                    <KeyRound className="size-3.5" />
+                    <KeyRound className="size-3.5 text-secondary-400" />
                     <span className="text-xs font-medium">{id}</span>
                 </div>
             </div>
@@ -65,13 +65,13 @@ export default function Card({
             <div className="flex gap-4">
                 {rocket && (
                     <div className="flex gap-1.5 items-center">
-                        <Rocket className="size-4" />
+                        <Rocket className="size-4 text-secondary-400" />
                         <span className="text-sm tracking-tight font-medium">{rocket}</span>
                     </div>
                 )}
 
                 <div className="flex items-center gap-1.5">
-                    <Calendar className="size-4" />
+                    <Calendar className="size-4 text-secondary-400" />
                     <span className="text-sm font-medium">{formatDate(launchDate)}</span>
                 </div>
             </div>
@@ -84,7 +84,7 @@ export default function Card({
                     </p>
                 ) :
                     (<div className="flex items-center gap-2 p-4 bg-white/10 rounded-xl">
-                        <CircleQuestionMark className="size-5" />
+                        <CircleQuestionMark className="size-5 text-secondary-400" />
                         <p className="text-sm">
                             Classified… or maybe just unknown.
                         </p>
