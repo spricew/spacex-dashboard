@@ -63,7 +63,7 @@ export default function LongCard({
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <Calendar className="size-4" />
+                    <Calendar className="size-4 text-secondary-400" />
                     <span className="text-sm font-medium">{formatDate(launchDate)}</span>
                 </div>
             </div>
@@ -86,14 +86,14 @@ export default function LongCard({
                         <Badge status={successStatus} UpcomingState={isUpcoming} />
                     </div>
                     <div className="flex items-center gap-2">
-                        <KeyRound className="size-3.5" />
+                        <KeyRound className="size-3.5 text-secondary-400" />
                         <span className="text-xs font-medium">{id}</span>
                     </div>
                 </div>
             </header>
 
             <div className="flex flex-col gap-1">
-                <h4 className="font-medium">Mission Details</h4>
+                <h4 className="font-medium ">Mission Details</h4>
                 {details ? (
                     <p className="text-sm leading-tight text-pretty line-clamp-5">
                         {details}
@@ -101,7 +101,7 @@ export default function LongCard({
                 ) :
                     (<div className="flex items-center gap-2 p-4 bg-white/10 backdrop-blur-xs rounded-xl">
 
-                        <CircleQuestionMark className="size-5" />
+                        <CircleQuestionMark className="size-5 text-secondary-400" />
                         <p className="text-sm">
                             Classified… or maybe just unknown.
                         </p>
@@ -114,7 +114,7 @@ export default function LongCard({
                     text="See more"
                     icon={<ChevronRight className="size-5 stroke-3 -mr-2" />}
                     textClass="-mr-1"
-                    extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
+                    extraClass="mt-auto self-end bg-white/10 backdrop-blur-md hover:bg-white/20"
                     href={`/Launch/${hrefString}`}
                 />
             )}
