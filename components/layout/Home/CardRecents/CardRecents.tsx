@@ -1,4 +1,4 @@
-import { fetchRecentLaunches } from '@/components/layout/Home/data';
+import { fetchRecentLaunches } from '@/components/layout/Home/CardRecents/data';
 import { Clock, ChevronRight } from 'lucide-react';
 
 import RowCard from '@/components/ui/RowCard';
