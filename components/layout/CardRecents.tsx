@@ -8,7 +8,7 @@ export default async function PanelRecentLaunches() {
   const launches = await getRecentLaunches();
 
   const launchesWithRocket = await Promise.all(
-    launches.map(async (launch) => {
+    launches.map(async (launch:any) => {
       const rocket = await getRocketById(launch.rocket);
 
       return {

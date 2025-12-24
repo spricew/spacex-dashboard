@@ -6,7 +6,7 @@ export async function fetchLaunches(page: number) {
   const launches = await getLaunches({ page, limit: 20 });
 
   const launchesWithRocket = await Promise.all(
-    launches.docs.map(async (launch) => {
+    launches.docs.map(async (launch:any) => {
       const rocket = await getRocketById(launch.rocket);
       return {
         ...launch,
