@@ -96,7 +96,8 @@ export default function Card({
                 <PrimaryButton
                     text="See details"
                     icon={<ChevronRight className="size-5 stroke-3 -ml-1 -mr-2" />}
-                    extraClass="mt-auto self-end bg-white/10 backdrop-blur-md"
+                    extraClass="mt-auto self-end bg-white/10 backdrop-blur-md
+                    transition-color duration-300 ease-out hover:bg-white/20"
                     href={hrefString}
                 />
             )}
