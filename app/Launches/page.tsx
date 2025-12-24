@@ -18,10 +18,6 @@ export default async function Launches() {
             </picture>
 
             <div className="flex flex-col gap-6 px-4 py-8 md:px-24 md:py-18">
-                <h1 className="text-2xl text-center md:text-start md:text-3xl tracking-tight font-medium">
-                    Recent Launches
-                </h1>
-                
                 <List initialLaunches={initialLaunches} />
             </div>
         </div>
