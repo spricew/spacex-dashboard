@@ -8,7 +8,7 @@ export default function Sidebar() {
             <nav>
                 <ul className="space-y-4">
                     <ListItem href="/" label="Home" Icon={Home} />
-                    <ListItem href="/launches" label="Launches" Icon={Rocket} />
+                    <ListItem href="/Launches" label="Launches" Icon={Rocket} />
                 </ul>
             </nav>
         </aside>
