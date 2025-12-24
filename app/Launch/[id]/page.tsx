@@ -99,17 +99,20 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                             </div>
                             )}
 
-                        {launch.links.article && (
-                            <p className="text-base">
-                                for more information, you can read the
-                                <a href={launch.links.article} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                                    <span className="inline-flex gap-0.5 font-medium text-secondary-400">
-                                        official article
-                                        <ArrowUpRight strokeWidth={2.5} className="size-5 relative top-0.5" />
-                                    </span>
-                                </a>
-                            </p>
-                        )}
+                        {/* {launch.links.article && ( */}
+                        <p className="text-base">
+                            {/* &nbsp; Adds a single fixed space */}
+                            for more information, you can read the&nbsp;
+                            <a href={launch.links.article} target="_blank" rel="noopener noreferrer"
+                                className="cursor-pointer group">
+                                <span className="inline-flex gap-0.5 font-medium text-secondary-400
+                                group-hover:underline group-hover:underline-offset-2 group-hover:decoration-secondary-400">
+                                    official article
+                                    <ArrowUpRight strokeWidth={2.5} className="size-5 relative top-0.5" />
+                                </span>
+                            </a>
+                        </p>
+                        {/* )} */}
                     </section>
                 </div>
 
