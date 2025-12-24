@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
 import Carousel from "@/components/ui/Carousel";
 
-import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark } from "lucide-react";
+import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight } from "lucide-react";
 
 interface LaunchPageProps {
     params: Promise<{ id: string }>;
@@ -19,7 +19,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
     // youtube video link
     const embedUrl = `https://www.youtube.com/embed/${launch.links.youtube_id}`;
     const imagesUrl = launch.links.flickr.original;
-    const cardStyles = "ring ring-inset ring-white/10 rounded-3xl";
+    const cardStyles = "rounded-3xl bg-primary-400";
 
     return (
         <div className="flex flex-col min-h-screen w-full">
@@ -83,7 +83,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                         </div>
                     </section>
 
-                    {/* Details */}
+                    {/* Detalles */}
                     <section className="max-w-3xl">
                         <h2 className="text-xl font-medium mb-2">Mission Details</h2>
                         {launch.details ? (
@@ -98,6 +98,18 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                                 </p>
                             </div>
                             )}
+
+                        {launch.links.article && (
+                            <p className="text-base">
+                                for more information, you can read the
+                                <a href={launch.links.article} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                                    <span className="inline-flex gap-0.5 font-medium text-secondary-400">
+                                        official article
+                                        <ArrowUpRight strokeWidth={2.5} className="size-5 relative top-0.5" />
+                                    </span>
+                                </a>
+                            </p>
+                        )}
                     </section>
                 </div>
 
@@ -117,7 +129,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                     </section>
                 )}
 
-                <Carousel images={imagesUrl}/>
+                <Carousel images={imagesUrl} />
 
             </div>
         </div>
