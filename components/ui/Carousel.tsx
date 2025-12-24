@@ -43,10 +43,10 @@ export default function Carousel({ images }: CarouselProps) {
 
             {/* buttons */}
             {images.length > 1 && (
-                <div className="flex justify-between items-center p-4 w-full h-full bg-amber-300 z-50">
+                <div className="absolute inset-0 flex justify-between items-center w-full h-full p-4">
                     <button
                         onClick={prevImage}
-                        className={`absolute top-1/2 -translate-y-1/2 ${btnStyles}`}
+                        className={`${btnStyles}`}
                         aria-label="Imagen anterior"
                     >
                         <ChevronLeft size={24} strokeWidth={2.5} />
@@ -54,7 +54,7 @@ export default function Carousel({ images }: CarouselProps) {
 
                     <button
                         onClick={nextImage}
-                        className={`absolute right-3 top-1/2 -translate-y-1/2 ${btnStyles}`}
+                        className={`${btnStyles}`}
                         aria-label="Siguiente imagen"
                     >
                         <ChevronRight size={24} strokeWidth={2.5} />
