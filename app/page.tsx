@@ -1,6 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Home/Sidebar';
-import CardRecents from '@/components/layout/Home/CardRecents';
+import CardRecents from '@/components/layout/Home/CardRecents/CardRecents';
 import CardUpcoming from '@/components/layout/Home/CardUpcoming';
 import LatestLaunch from '@/components/layout/Home/LatestLaunch';
 
