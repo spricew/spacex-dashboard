@@ -6,6 +6,7 @@ import Badge from "@/components/ui/Badge";
 import Carousel from "@/components/ui/Carousel";
 
 import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, Book } from "lucide-react";
+import VideoSection from "@/components/layout/LaunchPage/VideoSection";
 
 interface LaunchPageProps {
     params: Promise<{ id: string }>;
@@ -18,7 +19,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
 
     // youtube video link
     const embedUrl = `https://www.youtube.com/embed/${launch.links.youtube_id}`;
-    const imagesUrl = launch.links.flickr.original;
+    const imagesUrl = launch.links.flickr?.original || [];
 
     return (
         <div className="flex flex-col min-h-screen w-full">
@@ -124,18 +125,15 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
 
                 {/* Video */}
                 {launch.links.webcast && (
-                    <section className="max-w-4xl">
-                        <h2 className="text-2xl font-medium mb-2">Launch Video</h2>
-                        <iframe
-                            src={embedUrl}
-                            className="w-full aspect-video rounded-xl"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
-                    </section>
+                    <VideoSection url={embedUrl} />
                 )}
 
-                <Carousel images={imagesUrl} />
+                {/* images carousel */}
+                {imagesUrl.length > 0 &&
+                    (
+                        <Carousel images={imagesUrl} />
+                    )
+                }
 
             </div>
         </div>
