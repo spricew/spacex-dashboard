@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/utils/formatDate";
 
 import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
+import Carousel from "@/components/ui/Carousel";
 
 import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark } from "lucide-react";
 
@@ -17,13 +18,13 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
 
     // youtube video link
     const embedUrl = `https://www.youtube.com/embed/${launch.links.youtube_id}`;
+    const imagesUrl = launch.links.flickr.original;
     const cardStyles = "ring ring-inset ring-white/10 rounded-3xl";
 
     return (
-        <div className="flex flex-col h-screen w-full">
-
+        <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <div className="grid grid-cols-2 gap-2 px-24 py-18 h-screen">
+            <div className="flex flex-col gap-4 px-24 py-18">
                 <div className={`flex flex-col gap-4 p-8 ${cardStyles}`}>
                     <header className="flex items-center gap-4">
 
@@ -115,6 +116,9 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                         />
                     </section>
                 )}
+
+                <Carousel images={imagesUrl}/>
+
             </div>
         </div>
     );
