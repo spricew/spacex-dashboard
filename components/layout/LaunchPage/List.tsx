@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import React from "react";
-import { ChevronRight, Loader2 } from "lucide-react";
+import { ArrowUpDown, ChevronRight, Loader2 } from "lucide-react";
 import { fetchLaunches } from "@/app/Launches/actions";
 
 import Card from "@/components/ui/Card";
@@ -25,33 +25,48 @@ interface LaunchData {
   };
 }
 
-interface ListProps {
-  initialLaunches: LaunchData[];
-}
-
-export default function List({ initialLaunches }: ListProps) {
+export default function List({ initialLaunches }: { initialLaunches: LaunchData[]; }) {
+  // paginacion
   const [launches, setLaunches] = useState<LaunchData[]>(initialLaunches);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
+  // launches order display
+  const [order, setOrder] = useState<'asc' | 'desc'>('desc');
+
+  const handleSortChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newOrder = e.target.value as 'asc' | 'desc';
+    setOrder(newOrder);
+    setPage(1);
+    setHasMore(true);
+    setIsLoading(true);
+
+    try {
+      const sortedLaunches = await fetchLaunches(1, newOrder);
+      setLaunches(sortedLaunches); // replace the list
+    } catch (error) {
+      console.error("Error sorting:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const loadMore = async () => {
     setIsLoading(true);
     const nextPage = page + 1;
-    
-    try {
-      const newLaunches = await fetchLaunches(nextPage);
 
-      // set if there is more launches in the list
+    try {
+      const newLaunches = await fetchLaunches(nextPage, order);
+
       if (newLaunches.length === 0) {
         setHasMore(false);
       } else {
-        // add new launches to existing
         setLaunches((prev) => [...prev, ...newLaunches]);
         setPage(nextPage);
       }
     } catch (error) {
-      console.error("Error loading more launches:", error);
+      console.error("Error loading more:", error);
     } finally {
       setIsLoading(false);
     }
@@ -59,6 +74,37 @@ export default function List({ initialLaunches }: ListProps) {
 
   return (
     <div className="flex flex-col gap-6">
+      <div className="flex justify-between">
+        <h1 className="text-2xl text-center md:text-start md:text-3xl tracking-tight font-medium">
+          Recent Launches
+        </h1>
+
+        {/* select (create component) */}
+        <div className="relative group">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <ArrowUpDown className="size-4 text-white/50 group-hover:text-white transition-colors" />
+          </div>
+          <select
+            value={order}
+            onChange={handleSortChange}
+            disabled={isLoading}
+            className="appearance-none py-2 pl-10 pr-8 bg-white/5 ring ring-inset ring-white/10 
+            rounded-xl text-base text-white focus:outline-none focus:ring-white/30 hover:bg-white/10
+            cursor-pointer transition duration-300 ease-out disabled:opacity-50">
+
+            <option value="desc" className="bg-zinc-900">Newest First</option>
+            <option value="asc" className="bg-zinc-900">Oldest First</option>
+          </select>
+
+          {/* flechita decorativa del select */}
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <ChevronRight className="size-4 text-white/50 rotate-90" />
+          </div>
+
+        </div>
+      </div>
+
+      {/* launches */}
       <main className="flex flex-wrap justify-center gap-1 md:gap-2 w-full">
         {launches.map((launch) => (
           <React.Fragment key={launch.id}>
