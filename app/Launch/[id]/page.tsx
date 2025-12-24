@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
 import Carousel from "@/components/ui/Carousel";
 
-import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, Book } from "lucide-react";
+import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, BookOpen } from "lucide-react";
 import VideoSection from "@/components/layout/LaunchPage/VideoSection";
 
 interface LaunchPageProps {
@@ -101,18 +101,21 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                             </div>
                             )}
 
-                        <p className="mt-4 text-base">
-                            {/* &nbsp; Adds a single fixed space */}
-                            for more information, you can read the&nbsp;
-                            <a href={launch.links.article} target="_blank" rel="noopener noreferrer"
-                                className="cursor-pointer group">
-                                <span className="inline-flex gap-0.5 font-medium text-secondary-400
-                                group-hover:underline group-hover:underline-offset-2 group-hover:decoration-secondary-400">
-                                    official article
-                                    <ArrowUpRight strokeWidth={2.5} className="size-5 relative top-0.5" />
+                        {launch.links.article &&
+                            (<p className="flex gap-2 items-center mt-4 text-base">
+                                <span className="p-2 rounded-full bg-primary-tint-100">
+                                    <BookOpen className="size-5" />
                                 </span>
-                            </a>
-                        </p>
+                                for more information, you can read the
+                                <a href={launch.links.article} target="_blank" rel="noopener noreferrer"
+                                    className="cursor-pointer group">
+                                    <span className="inline-flex gap-0.5 font-medium text-secondary-400
+                                group-hover:underline group-hover:underline-offset-2 group-hover:decoration-secondary-400">
+                                        official article
+                                        <ArrowUpRight strokeWidth={2.5} className="size-5 relative top-0.5" />
+                                    </span>
+                                </a>
+                            </p>)}
                     </section>
 
                     <div className="flex flex-col gap-6 max-w-2xl">
