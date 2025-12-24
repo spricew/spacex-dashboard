@@ -8,6 +8,10 @@ interface CarouselProps {
 }
 
 export default function Carousel({ images }: CarouselProps) {
+    const btnStyles = `p-2 rounded-full opacity-50
+    transition-all duration-300 hover:bg-white hover:scale-110 group-hover:opacity-100
+    backdrop-blur-xl shadow-lg bg-white/50 text-primary-800 z-10`;
+
     const [current, setCurrent] = useState(0);
 
     const nextImage = () => {
@@ -39,13 +43,10 @@ export default function Carousel({ images }: CarouselProps) {
 
             {/* buttons */}
             {images.length > 1 && (
-                <div className="flex justify-between p-6 w-full h-full">
-
+                <div className="flex justify-between items-center p-4 w-full h-full bg-amber-300 z-50">
                     <button
                         onClick={prevImage}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full opacity-0
-                    transition-all duration-300 hover:bg-white hover:scale-110 group-hover:opacity-100
-                    backdrop-blur-xl shadow-lg bg-white/50 text-primary-800 z-10"
+                        className={`absolute top-1/2 -translate-y-1/2 ${btnStyles}`}
                         aria-label="Imagen anterior"
                     >
                         <ChevronLeft size={24} strokeWidth={2.5} />
@@ -53,9 +54,7 @@ export default function Carousel({ images }: CarouselProps) {
 
                     <button
                         onClick={nextImage}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full opacity-0
-                    transition-all duration-300 hover:bg-white hover:scale-110 group-hover:opacity-100
-                    backdrop-blur-xl shadow-lg bg-white/50 text-primary-800 z-10"
+                        className={`absolute right-3 top-1/2 -translate-y-1/2 ${btnStyles}`}
                         aria-label="Siguiente imagen"
                     >
                         <ChevronRight size={24} strokeWidth={2.5} />
