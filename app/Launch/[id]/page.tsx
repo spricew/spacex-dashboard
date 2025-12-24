@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
 import Carousel from "@/components/ui/Carousel";
 
-import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight } from "lucide-react";
+import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, Book } from "lucide-react";
 
 interface LaunchPageProps {
     params: Promise<{ id: string }>;
@@ -24,7 +24,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
         <div className="flex flex-col min-h-screen w-full">
             <Navbar />
             <div className="flex flex-col gap-4 px-24 py-18">
-                <div className="grid grid-cols-[1fr_20rem] h-100 gap-2">
+                <div className="grid grid-cols-[1fr_25rem] min-h-fit h-100 gap-2">
 
                     {/* informacion */}
                     <div className={`flex flex-col gap-4 p-8 rounded-3xl bg-primary-300`}>
@@ -87,7 +87,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
 
                         {/* Detalles */}
                         <section className="max-w-2xl">
-                            <h2 className="text-xl font-medium mb-2">Mission Details</h2>
+                            <h2 className="text-xl font-medium mb-1">Mission Details</h2>
                             {launch.details ? (
                                 <p className="text-sm leading-tight text-pretty">
                                     {launch.details}
@@ -101,8 +101,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                                 </div>
                                 )}
 
-                            {/* {launch.links.article && ( */}
-                            <p className="text-base">
+                            <p className="mt-4 text-base">
                                 {/* &nbsp; Adds a single fixed space */}
                                 for more information, you can read the&nbsp;
                                 <a href={launch.links.article} target="_blank" rel="noopener noreferrer"
@@ -114,12 +113,11 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                                     </span>
                                 </a>
                             </p>
-                            {/* )} */}
                         </section>
                     </div>
 
                     {/* launchpad */}
-                    <div className="flex flex-col p-6 bg-amber-300 rounded-3xl">
+                    <div className="flex flex-col p-6 bg-primary-300 rounded-3xl">
 
                     </div>
                 </div>
