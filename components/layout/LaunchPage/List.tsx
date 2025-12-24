@@ -104,7 +104,8 @@ export default function List({ initialLaunches }: ListProps) {
             )
           }
           textClass="text-lg"
-          extraClass={`self-end ${isLoading ? "opacity-80 pointer-events-none" : ""}`}
+          extraClass={`self-end transition ease-out duration-300 hover:bg-primary-tint-100
+            ${isLoading ? "opacity-80 pointer-events-none" : ""}`}
           onClick={loadMore}
         />
       )}
