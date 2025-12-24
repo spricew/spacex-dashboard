@@ -10,7 +10,7 @@ interface CarouselProps {
 export default function Carousel({ images }: CarouselProps) {
     const btnStyles = `p-2 rounded-full opacity-50
     transition-all duration-300 hover:bg-white hover:scale-110 group-hover:opacity-100
-    backdrop-blur-xl shadow-lg bg-white/50 text-primary-800 z-10`;
+    backdrop-blur-xl shadow-lg bg-white/50 text-primary-800 z-10 cursor-pointer`;
 
     const [current, setCurrent] = useState(0);
 
@@ -23,7 +23,7 @@ export default function Carousel({ images }: CarouselProps) {
     };
 
     return (
-        <div className="relative w-1/2 aspect-video rounded-2xl overflow-hidden group">
+        <div className="relative min-w-1/2 aspect-video rounded-2xl overflow-hidden group">
 
             {/* Slider wrapper */}
             <div
