@@ -57,7 +57,7 @@ export default function RowCard({
                             </div>
                             
                             <div className="flex items-center gap-2">
-                                <KeyRound className="size-4" />
+                                <KeyRound className="size-4 text-secondary-400" />
                                 <span className="text-xs md:text-xs lg:text-sm font-medium">{id}</span>
                             </div>
                         </div>
@@ -68,12 +68,12 @@ export default function RowCard({
                             <Badge status={successStatus} extraClass="hidden md:inline" />
                             {rocket && (
                                 <div className="flex gap-1.5 items-center shrink-0">
-                                    <Rocket className="size-4" />
+                                    <Rocket className="size-4 text-secondary-400/80" />
                                     <span className="text-xs md:text-sm lg:text-base tracking-tight font-medium">{rocket}</span>
                                 </div>
                             )}
                             <div className="flex gap-1.5 items-center shrink-0">
-                                <Calendar className="size-4" />
+                                <Calendar className="size-4 text-secondary-400/80" />
                                 <span className="text-xs md:text-sm lg:text-base tracking-tight font-medium">{formatDate(launchDate)}</span>
                             </div>
                         </div>

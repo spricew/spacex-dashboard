@@ -26,7 +26,7 @@ export default async function PanelRecentLaunches() {
       <section className='flex flex-col gap-4'>
         <header className="flex items-center gap-2">
           <span className={`flex p-2 rounded-full ${glassCard}`}>
-            <Clock className="size-6 text-white/80" />
+            <Clock className="size-6 text-secondary-400" />
           </span>
           <h1 className="text-2xl md:text-3xl tracking-tight font-medium">
             Recent Launches
