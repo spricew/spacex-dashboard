@@ -1,22 +1,11 @@
-import { getRecentLaunches, getRocketById } from '@/lib/api/spacex';
+import { fetchRecentLaunches } from '@/components/layout/Home/data';
 import { Clock, ChevronRight } from 'lucide-react';
 
 import RowCard from '@/components/ui/RowCard';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 
-export default async function PanelRecentLaunches() {
-  const launches = await getRecentLaunches();
-
-  const launchesWithRocket = await Promise.all(
-    launches.map(async (launch:any) => {
-      const rocket = await getRocketById(launch.rocket);
-
-      return {
-        ...launch,
-        rocketName: rocket.name,
-      };
-    })
-  );
+export default async function CardRecents() {
+  const launches = await fetchRecentLaunches();
 
   const glassCard =
     'rounded-3xl ring ring-inset ring-white/10 bg-black/30 backdrop-blur-xl shadow-lg shadow-black/20';
@@ -34,7 +23,7 @@ export default async function PanelRecentLaunches() {
         </header>
 
         <div className="flex flex-col gap-2 h-full">
-          {launchesWithRocket.map((launch) => (
+          {launches.map((launch) => (
             <RowCard
               key={launch.id}
               launchName={launch.name}
