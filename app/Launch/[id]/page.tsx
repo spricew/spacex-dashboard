@@ -129,7 +129,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                             (
                                 <div className="flex flex-col gap-2">
 
-                                    <h2 className="text-2xl font-medium mb-2">Launch Video</h2>
+                                    <h2 className="text-2xl font-medium tracking-tight mb-1">Launch pictures</h2>
                                     <Carousel images={imagesUrl} />
                                 </div>
                             )
