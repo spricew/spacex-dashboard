@@ -11,6 +11,7 @@ This application was built as a frontend technical challenge, emphasizing code o
 
 - Display a list of SpaceX launches with mission details
 - View detailed information for each launch
+- Sort launches by date in ascending and descending order 
 - Separate views for latest launch, recent launches, next launch and all launches
 - Reusable UI components for cards and layout
 - Responsive layout for desktop and mobile devices
