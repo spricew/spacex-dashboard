@@ -8,6 +8,7 @@ import { fetchLaunches } from "@/app/Launches/actions";
 import Card from "@/components/ui/Card";
 import RowCard from "@/components/ui/RowCard";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import PrimarySelect from "@/components/ui/PrimarySelect";
 
 interface LaunchData {
   id: string;
@@ -72,6 +73,11 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
     }
   };
 
+  const sortOptions = [
+    { value: 'desc', label: 'Newest First' },
+    { value: 'asc', label: 'Oldest First' }
+  ];
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between">
@@ -80,28 +86,14 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
         </h1>
 
         {/* select (create component) */}
-        <div className="relative group">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <ArrowUpDown className="size-4 text-white/50 group-hover:text-white transition-colors" />
-          </div>
-          <select
-            value={order}
-            onChange={handleSortChange}
-            disabled={isLoading}
-            className="appearance-none py-2 pl-10 pr-8 bg-white/5 ring ring-inset ring-white/10 
-            rounded-xl text-base text-white focus:outline-none focus:ring-white/30 hover:bg-white/10
-            cursor-pointer transition duration-300 ease-out disabled:opacity-50">
+        <PrimarySelect
+          value={order}
+          icon={<ArrowUpDown className="size-4 text-white/50 group-hover:text-white transition-colors" />}
+          options={sortOptions}
+          disabled={isLoading}
+          onChange={handleSortChange}
+        />
 
-            <option value="desc" className="bg-zinc-900">Newest First</option>
-            <option value="asc" className="bg-zinc-900">Oldest First</option>
-          </select>
-
-          {/* flechita decorativa del select */}
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <ChevronRight className="size-4 text-white/50 rotate-90" />
-          </div>
-
-        </div>
       </div>
 
       {/* launches */}
