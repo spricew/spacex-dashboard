@@ -24,7 +24,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
     return (
         <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <div className="flex flex-col gap-8 px-24 py-18">
+            <div className="flex flex-col gap-8 p-4 md:px-24 md:py-18">
 
                 {/* informacion */}
                 <div className={`flex flex-col gap-4 p-8 rounded-3xl bg-primary-300`}>
@@ -87,7 +87,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
 
                     {/* Detalles */}
                     <section className="max-w-2xl">
-                        <h2 className="text-xl font-medium mb-1">Mission Details</h2>
+                        <h2 className="text-xl font-medium tracking-tight mb-1">Mission Details</h2>
                         {launch.details ? (
                             <p className="text-sm leading-tight text-pretty">
                                 {launch.details}
