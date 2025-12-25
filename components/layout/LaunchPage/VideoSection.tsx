@@ -1,7 +1,7 @@
 export default function VideoSection({ url }: { url: string }) {
     return (
         <section className="flex flex-col gap-2">
-            <h2 className="text-2xl font-medium mb-2">Launch Video</h2>
+            <h2 className="text-2xl font-medium tracking-tight mb-1">Launch Video</h2>
             <iframe
                 src={url}
                 className="w-full aspect-video rounded-xl"
