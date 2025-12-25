@@ -33,13 +33,33 @@ Follow these steps to run the project locally:
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- npm or yarn
+- npm
 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/spricew/spacex-dashboard.git
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd spacex-dashboard
+
+3. Install dependencies:
+    ```bash
+    npm install
+
+4. Run the development server:
+    ```bash
+    npm run dev
+
+5. Open your browser and go to:    
+    ```bash
+    http://localhost:3000
+
+
 
 
 ## Project Structure
