@@ -25,7 +25,7 @@ export default function PrimarySelect({ icon, value, options, disabled, onChange
                 onChange={onChange}
                 disabled={disabled}
                 className="appearance-none py-2 pl-10 pr-8 bg-white/5 ring ring-inset ring-white/10 
-          rounded-xl text-base text-white focus:outline-none focus:ring-white/30 hover:bg-white/10
+          rounded-xl text-sm md:text-base text-white focus:outline-none focus:ring-white/30 hover:bg-white/10
           cursor-pointer transition duration-300 ease-out disabled:opacity-50">
 
                 {options.map((option) => (
