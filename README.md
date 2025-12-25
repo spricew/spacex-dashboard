@@ -16,7 +16,6 @@ This application was built as a frontend technical challenge, emphasizing code o
 - Reusable UI components for cards and layout
 - Responsive layout for desktop and mobile devices
 
-
 ## Tech Stack
 
 - **Next.js** – React framework used for server-side rendering and optimized data fetching.
@@ -64,9 +63,39 @@ Follow these steps to run the project locally:
 
 The project follows a modular and scalable folder structure using the Next.js App Router:
 
-    ```text
     src/
     ├── app/            # Application routes and pages
     ├── components/     # Reusable UI and layout components
     ├── lib/            # API calls and utility functions
-    ├── styles/         # Global styles and Tailwind configuration
+    ├── styles/         # Global styles
+
+## API Usage
+
+This project consumes the official SpaceX public API to retrieve launch data.
+
+- Launch data is fetched from the SpaceX API endpoints.
+- The API is used to retrieve relevant details and information.
+- Data fetching is handled in a centralized way through utility functions to keep components clean and focused on presentation.
+
+## Technical Decisions
+
+- **Next.js App Router** was used to take advantage of server components and async data fetching, improving performance and reducing client-side complexity.
+- **Server-side data fetching** was chosen to ensure up-to-date launch data and better initial load performance.
+- **Reusable UI components** were implemented to keep the codebase consistent and easier to maintain.
+- **TypeScript** was used to reduce runtime errors and improve code readability when working with external API data.
+- **Tailwind CSS** was selected to enable rapid UI development with a consistent design system.
+
+## Design Decisions
+
+###The UI was designed with clarity and usability as the main priorities.
+A card-based layout was chosen to make launch information easy to scan and compare.
+The details view focuses on essential mission data while avoiding information overload.
+Visual hierarchy and spacing were used to guide the user’s attention to key information.
+Responsive behavior was considered from the start to ensure usability across different screen sizes.
+
+## AI Usage
+
+### AI tools were used as a productivity aid during development.
+ChatGPT was used to brainstorm component structure and improve TypeScript typing when consuming the SpaceX API.
+AI assistance helped debug rendering issues and refine data transformation logic.
+All AI-generated suggestions were reviewed, adapted, and integrated manually to ensure code quality and alignment with project goals.
