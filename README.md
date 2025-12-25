@@ -28,4 +28,18 @@ This application was built as a frontend technical challenge, emphasizing code o
 
 ## Getting Started
 
+Follow these steps to run the project locally:
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/spricew/spacex-dashboard.git
+
+
 ## Project Structure
