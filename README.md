@@ -1,4 +1,4 @@
-# SpaceX Dashboard 🚀
+# 🚀 SpaceX Dashboard 
 
 ## Overview
 
@@ -60,6 +60,13 @@ Follow these steps to run the project locally:
     http://localhost:3000
 
 
-
-
 ## Project Structure
+
+The project follows a modular and scalable folder structure using the Next.js App Router:
+
+    ```text
+    src/
+    ├── app/            # Application routes and pages
+    ├── components/     # Reusable UI and layout components
+    ├── lib/            # API calls and utility functions
+    ├── styles/         # Global styles and Tailwind configuration
