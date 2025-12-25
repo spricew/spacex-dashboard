@@ -87,7 +87,7 @@ This project consumes the official SpaceX public API to retrieve launch data.
 
 ## Design Decisions
 
-###The UI was designed with clarity and usability as the main priorities.
+### The UI was designed with clarity and usability as the main priorities.
 A card-based layout was chosen to make launch information easy to scan and compare.
 The details view focuses on essential mission data while avoiding information overload.
 Visual hierarchy and spacing were used to guide the user’s attention to key information.
