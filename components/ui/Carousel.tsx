@@ -43,7 +43,7 @@ export default function Carousel({ images }: CarouselProps) {
 
             {/* buttons */}
             {images.length > 1 && (
-                <div className="absolute inset-0 flex justify-between items-center w-full h-full p-4">
+                <div className="absolute inset-0 flex justify-between items-center w-full h-full p-2 md:p-4">
                     <button
                         onClick={prevImage}
                         className={`${btnStyles}`}
