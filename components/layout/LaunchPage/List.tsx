@@ -85,7 +85,6 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
           Recent Launches
         </h1>
 
-        {/* select (create component) */}
         <PrimarySelect
           value={order}
           icon={<ArrowUpDown className="size-4 text-white/50 group-hover:text-white transition-colors" />}
