@@ -24,7 +24,7 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
     return (
         <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <div className="flex flex-col gap-8 p-4 md:px-24 md:py-18">
+            <div className="flex flex-col gap-4 p-4 md:px-24 md:py-18">
 
                 {/* informacion */}
                 <div className={`flex flex-col gap-4 p-8 rounded-3xl bg-primary-300`}>
@@ -117,30 +117,48 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                                 </a>
                             </p>)}
                     </section>
+                </div>
 
-                    <div className="flex flex-col gap-6 max-w-2xl">
-                        {/* Video */}
-                        {launch.links.webcast && (
+                <div className="flex flex-col md:grid grid-cols-2 gap-4">
+
+                    {/* Video */}
+                    <div className="p-8 rounded-3xl bg-primary-300">
+                        {launch.links.webcast ? (
                             <VideoSection url={embedUrl} />
-                        )}
+                        ) :
+                            (
+                                <div className="flex flex-col gap-2 aspect-video">
+                                    <h2 className="text-2xl font-medium tracking-tight mb-1">Launch video</h2>
+                                    <div className="flex justify-center items-center h-full w-full rounded-xl bg-primary-100">
+                                        No video available...
+                                    </div>
+                                </div>
+                            )
+                        }
 
-                        {/* images carousel */}
-                        {imagesUrl.length > 0 &&
+                    </div>
+
+                    {/* images carousel */}
+                    <div className="p-8 rounded-3xl bg-primary-300">
+
+                        {imagesUrl.length > 0 ?
                             (
                                 <div className="flex flex-col gap-2">
-
                                     <h2 className="text-2xl font-medium tracking-tight mb-1">Launch pictures</h2>
                                     <Carousel images={imagesUrl} />
+                                </div>
+                            ) : (
+                                <div className="flex flex-col gap-2 aspect-video">
+                                    <h2 className="text-2xl font-medium tracking-tight mb-1">Launch pictures</h2>
+                                    <div className="flex justify-center items-center h-full w-full rounded-xl bg-primary-100">
+                                        No images available...
+                                    </div>
                                 </div>
                             )
                         }
                     </div>
 
                 </div>
-
-
-
-
             </div>
         </div>
     );
