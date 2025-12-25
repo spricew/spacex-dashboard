@@ -16,7 +16,7 @@ interface SelectProps {
 
 export default function PrimarySelect({ icon, value, options, disabled, onChange }: SelectProps) {
     return (
-        <div className="relative group">
+        <div className="relative group self-end">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 {icon}
             </div>
