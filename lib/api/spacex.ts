@@ -95,7 +95,7 @@ export async function getLaunchpadById(id: string) {
     const response = await fetch(`https://api.spacexdata.com/v4/launchpads/${id}`);
 
     if (!response.ok) {
-        throw new Error("Failed to fetch rocket");
+        throw new Error("Failed to fetch the launchpad");
     }
 
     return response.json();
