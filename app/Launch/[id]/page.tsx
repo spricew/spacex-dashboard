@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Badge from "@/components/ui/Badge";
 import Carousel from "@/components/ui/Carousel";
 
-import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, BookOpen } from "lucide-react";
+import { KeyRound, Calendar, Rocket, CircleCheck, CircleQuestionMark, ArrowUpRight, BookOpen, MapPinned, Info } from "lucide-react";
 import VideoSection from "@/components/layout/LaunchPage/VideoSection";
 
 interface LaunchPageProps {
@@ -124,9 +124,34 @@ export default async function LaunchPage({ params }: LaunchPageProps) {
                         </section>
                     </div>
 
-                    <div className={`flex flex-col ${cardBaseStyle}`}>
+                    {/* Launchpad Info */}
+                    <div className={`flex flex-col gap-2 ${cardBaseStyle}`}>
 
+                        <span className="flex items-center gap-2 text-sm">
+                            <Info className="size-6 text-secondary-400" />
+                            <h3 className="text-xl tracking-tighter font-medium">About Launchpad</h3>
+                        </span>
 
+                        <div className="flex flex-col gap-1">
+                            <span className="text-2xl font-semibold">
+                                {launchpad.name}
+                            </span>
+
+                            <div className="flex items-center gap-4 text-base tracking-tight font-medium">
+                                <span className="flex items-center gap-2 ">
+                                    <Rocket className="size-4 text-secondary-400" />
+                                    {launchpad.launch_attempts} Launches
+                                </span>
+                                <span className="flex items-center gap-2">
+                                    <CircleCheck className="size-4 text-secondary-400" />
+                                    {launchpad.launch_successes} successful
+                                </span>
+                            </div>
+                        </div>
+                        <span className="text-lg">
+                            <MapPinned className="inline size-5 mr-1 text-secondary-400" />
+                            {launchpad.locality}, {launchpad.region}
+                        </span>
                     </div>
                 </div>
 
