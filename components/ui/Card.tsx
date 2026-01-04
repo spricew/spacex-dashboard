@@ -34,7 +34,7 @@ export default function Card({
 
     return (
         <div
-            className={`relative flex flex-col flex-1 gap-4 min-w-72 w-80 h-100 p-6 overflow-hidden ${extraClass} ${glassCard}`}
+            className={`scale-up relative flex flex-col flex-1 gap-4 min-w-72 w-80 h-100 p-6 overflow-hidden ${extraClass} ${glassCard}`}
         >
 
             <div className="flex justify-between items-start">

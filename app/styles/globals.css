@@ -91,3 +91,21 @@ body {
   outline: red  solid 1px;
   box-sizing: border-box;
 } */
+
+.scale-up {
+  animation: scaleUp .3s backwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+    /* transform: translateY(80px); */
+
+  }
+  100% {
+    transform: scale(1);
+    /* transform: translateY(0); */
+  }
+}
