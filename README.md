@@ -77,6 +77,17 @@ This project consumes the official SpaceX public API to retrieve launch data.
 - The API is used to retrieve relevant details and information.
 - Data fetching is handled in a centralized way through utility functions to keep components clean and focused on presentation.
 
+### API Status & Local Data Migration (August 2026)
+
+> **Note:** The official community-maintained SpaceX API (`api.spacexdata.com`) was archived in June 2026 and later began returning global `525 SSL Handshake Failed` errors due to a broken certificate configuration on the origin server. 
+> 
+> To guarantee 100% uptime and instantaneous load times, the dashboard's data-fetching logic has been migrated to use a robust **local static JSON snapshot**. 
+> 
+> - **Launches**: Sourced from a trusted public dump containing 132 detailed historical SpaceX launches.
+> - **Rockets & Launchpads**: Implemented via static mapping of official API models since the active catalog of SpaceX rockets (Falcon 1, 9, Heavy, Starship) and primary launchpads is highly static.
+>
+> All UI features remain identical, but network failures related to external dependencies are now completely eliminated.
+
 ## Technical Decisions
 
 - **Next.js App Router** was used to take advantage of server components and async data fetching, improving performance and reducing client-side complexity.
