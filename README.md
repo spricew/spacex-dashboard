@@ -106,7 +106,11 @@ Responsive behavior was considered from the start to ensure usability across dif
 
 ## AI Usage
 
-### AI tools were used as a productivity aid during development.
-ChatGPT was used to brainstorm component structure and improve TypeScript typing when consuming the SpaceX API.
-AI assistance helped debug rendering issues and refine data transformation logic.
-All AI-generated suggestions were reviewed, adapted, and integrated manually to ensure code quality and alignment with project goals.
+AI was leveraged strictly as an **auxiliary productivity tool and technical assistant**, rather than as the foundation for the application. All core architectural decisions, component hierarchy, state management strategies, and UX designs were driven and implemented by the developer.
+
+AI assistance was utilized in targeted areas to streamline the development workflow:
+- **TypeScript Modeling**: Refining complex interface definitions and typing strategies for external data structures.
+- **Data Transformation Logic**: Brainstorming edge cases for payload formatting, date parsing, and fallback values.
+- **Syntax & Debugging Acceleration**: Speeding up repetitive boilerplate and assisting in diagnosing specific CSS layout behaviors.
+
+> **Human Review & Quality Assurance:** Every AI-assisted suggestion was critically reviewed, refactored, and manually integrated to ensure maintainability, performance, and adherence to modern Next.js and React best practices.
