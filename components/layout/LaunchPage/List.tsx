@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import React from "react";
 import { ArrowUpDown, ChevronRight, Loader2 } from "lucide-react";
 import { fetchLaunches } from "@/app/Launches/actions";
@@ -15,25 +15,24 @@ interface LaunchData {
   name: string;
   rocket: string;
   rocketName: string;
-  success: boolean;
+  success: boolean | null;
   details: string | null;
   date_utc: string;
-  flight_number: string;
+  flight_number: number;
   links: {
     patch: {
       small: string;
     };
   };
+  [key: string]: unknown;
 }
 
-export default function List({ initialLaunches }: { initialLaunches: LaunchData[]; }) {
-  // paginacion
-  const [launches, setLaunches] = useState<LaunchData[]>(initialLaunches);
+export default function List({ initialLaunches }: { initialLaunches: LaunchData[] | Promise<LaunchData[]>; }) {
+  const resolved = Array.isArray(initialLaunches) ? initialLaunches : use(initialLaunches);
+  const [launches, setLaunches] = useState<LaunchData[]>(resolved);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-
-  // launches order display
   const [order, setOrder] = useState<'asc' | 'desc'>('desc');
 
   const handleSortChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -45,7 +44,7 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
 
     try {
       const sortedLaunches = await fetchLaunches(1, newOrder);
-      setLaunches(sortedLaunches); // replace the list
+      setLaunches(sortedLaunches);
     } catch (error) {
       console.error("Error sorting:", error);
     } finally {
@@ -99,7 +98,6 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
       <main className="flex flex-wrap justify-center gap-1 md:gap-2 w-full">
         {launches.map((launch) => (
           <React.Fragment key={launch.id}>
-            {/* Mobile */}
             <div className="w-full md:hidden">
               <RowCard
                 launchName={launch.name}
@@ -113,7 +111,6 @@ export default function List({ initialLaunches }: { initialLaunches: LaunchData[
               />
             </div>
 
-            {/* Desktop */}
             <div className="hidden md:flex flex-1 w-72">
               <Card
                 launchName={launch.name}

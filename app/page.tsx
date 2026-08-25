@@ -1,21 +1,24 @@
 import Navbar from '@/components/layout/Navbar';
 import Sidebar from '@/components/layout/Home/Sidebar';
 import CardRecents from '@/components/layout/Home/CardRecents/CardRecents';
-import CardUpcoming from '@/components/layout/Home/CardUpcoming';
 import LatestLaunch from '@/components/layout/Home/LatestLaunch';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="relative flex flex-col h-full lg:h-screen w-full">
       <Navbar />
 
-      <picture className="fixed -z-50 w-full h-full">
-        <img
+      <div className="fixed inset-0 -z-50 w-full h-full">
+        <Image
           src="/earthBg.jpg"
-          className="object-cover w-full h-full"
+          fill
+          className="object-cover"
           alt="Earth background"
+          priority
+          sizes="100vw"
         />
-      </picture>
+      </div>
 
       <div className="flex-1 h-fit p-4 md:p-0 overflow-y-auto lg:overflow-hidden">
 

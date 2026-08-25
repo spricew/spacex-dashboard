@@ -7,6 +7,7 @@ export default function VideoSection({ url }: { url: string }) {
                 className="w-full aspect-video rounded-xl"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
             />
         </section>
     );

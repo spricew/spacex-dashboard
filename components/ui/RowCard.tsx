@@ -9,9 +9,9 @@ interface RowCardProps {
     id: string;
     patch?: string;
     launchDate: string;
-    successStatus: boolean;
+    successStatus: boolean | null;
     rocket: string;
-    flightNum: string;
+    flightNum: number;
     hrefString: string;
     extraClass?: string;
 }

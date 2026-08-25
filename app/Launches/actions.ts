@@ -3,17 +3,10 @@
 import { getLaunches, getRocketById } from "@/lib/api/spacex";
 
 export async function fetchLaunches(page: number, order?: 'asc' | 'desc') {
-  const launches = await getLaunches({ order, page, limit: 20 });
+  const { docs } = getLaunches({ order, page, limit: 20 });
 
-  const launchesWithRocket = await Promise.all(
-    launches.docs.map(async (launch:any) => {
-      const rocket = await getRocketById(launch.rocket);
-      return {
-        ...launch,
-        rocketName: rocket.name,
-      };
-    })
-  );
-
-  return launchesWithRocket;
+  return docs.map((launch) => ({
+    ...launch,
+    rocketName: getRocketById(launch.rocket).name,
+  }));
 }

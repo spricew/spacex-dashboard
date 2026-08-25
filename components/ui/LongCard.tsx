@@ -9,9 +9,9 @@ interface LongCardProps {
     id: string;
     patch?: string;
     launchDate: string;
-    successStatus: boolean;
+    successStatus: boolean | null;
     isUpcoming?: boolean;
-    details?: string;
+    details?: string | null;
     rocket?: string;
     hrefString?: string;
     bgImage?: string;

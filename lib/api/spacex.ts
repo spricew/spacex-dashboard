@@ -1,11 +1,30 @@
+import { cache } from 'react';
 import fs from 'fs';
 import path from 'path';
 
-// Load launches data statically on the server side
-const launchesFilePath = path.join(process.cwd(), 'lib', 'data', 'launches.json');
-let cachedLaunches: any[] = [];
+export interface Launch {
+    id: string;
+    name: string;
+    rocket: string;
+    launchpad: string;
+    success: boolean | null;
+    upcoming: boolean;
+    details: string | null;
+    flight_number: number;
+    date_utc: string;
+    links: {
+        patch: { small: string; large: string };
+        flickr: { original: string[] };
+        webcast: string | null;
+        youtube_id: string | null;
+        article: string | null;
+    };
+}
 
-function loadLaunches() {
+const launchesFilePath = path.join(process.cwd(), 'lib', 'data', 'launches.json');
+let cachedLaunches: Launch[] = [];
+
+function loadLaunches(): Launch[] {
     if (cachedLaunches.length === 0) {
         const fileData = fs.readFileSync(launchesFilePath, 'utf-8');
         cachedLaunches = JSON.parse(fileData);
@@ -13,21 +32,27 @@ function loadLaunches() {
     return cachedLaunches;
 }
 
+const rockets: Record<string, string> = {
+    '5e9d0d95eda69955f709d1eb': 'Falcon 1',
+    '5e9d0d95eda69973a809d1ec': 'Falcon 9',
+    '5e9d0d95eda69974db09d1ed': 'Falcon Heavy',
+    '5e9d0d96ece2174fc709d1ee': 'Starship',
+};
+
+export const getRocketById = cache((id: string): { name: string } => ({
+    name: rockets[id] ?? 'Unknown Rocket',
+}));
+
+export const getLaunchById = cache((id: string) => {
+    const launch = loadLaunches().find((l) => l.id === id);
+    if (!launch) throw new Error('Launch not found');
+    return launch;
+});
+
 const BASE_URL = 'local';
 export { BASE_URL };
 
-// get launches by id
-export async function getLaunchById(id: string) {
-    const launches = loadLaunches();
-    const launch = launches.find(l => l.id === id);
-    if (!launch) {
-        throw new Error('Launch not found');
-    }
-    return launch;
-}
-
-// get all launches
-export async function getLaunches({
+export function getLaunches({
     page = 1,
     limit = 12,
     order = 'desc',
@@ -36,10 +61,7 @@ export async function getLaunches({
     limit?: number;
     order?: 'asc' | 'desc';
 }) {
-    let launches = [...loadLaunches()];
-    
-    // Sort by date_utc
-    launches.sort((a, b) => {
+    const launches = [...loadLaunches()].sort((a, b) => {
         const dateA = new Date(a.date_utc).getTime();
         const dateB = new Date(b.date_utc).getTime();
         return order === 'asc' ? dateA - dateB : dateB - dateA;
@@ -48,7 +70,6 @@ export async function getLaunches({
     const totalDocs = launches.length;
     const totalPages = Math.ceil(totalDocs / limit);
     const offset = (page - 1) * limit;
-    
     const docs = launches.slice(offset, offset + limit);
 
     return {
@@ -62,60 +83,49 @@ export async function getLaunches({
         hasPrevPage: page > 1,
         hasNextPage: page < totalPages,
         prevPage: page > 1 ? page - 1 : null,
-        nextPage: page < totalPages ? page + 1 : null
+        nextPage: page < totalPages ? page + 1 : null,
     };
 }
 
-// reutiliza la logica de getlaunches con diferentes parametros
-export async function getRecentLaunches() {
-    const data = await getLaunches({
-        limit: 10,
-        order: 'desc',
-        page: 1
-    });
-    return data.docs;
-}
+export const getRecentLaunches = cache(() =>
+    getLaunches({ limit: 10, order: 'desc', page: 1 }).docs
+);
 
-// get the latest launch
-export async function getLatestLaunch() {
-    const launches = loadLaunches();
-    const pastLaunches = launches.filter(l => !l.upcoming);
-    pastLaunches.sort((a, b) => new Date(b.date_utc).getTime() - new Date(a.date_utc).getTime());
-    
+export const getLatestLaunch = cache(() => {
+    const pastLaunches = loadLaunches()
+        .filter((l) => !l.upcoming)
+        .sort((a, b) => new Date(b.date_utc).getTime() - new Date(a.date_utc).getTime());
+
     if (pastLaunches.length === 0) throw new Error('No latest launch');
     return pastLaunches[0];
+});
+
+export const getNextLaunch = cache(() => {
+    const upcomingLaunches = loadLaunches()
+        .filter((l) => l.upcoming)
+        .sort((a, b) => new Date(a.date_utc).getTime() - new Date(b.date_utc).getTime());
+
+    return upcomingLaunches[0] ?? getLatestLaunch();
+});
+
+interface Launchpad {
+    name: string;
+    locality: string;
+    region: string;
+    launch_attempts: number;
+    launch_successes: number;
 }
 
-// get the next launch
-export async function getNextLaunch() {
-    const launches = loadLaunches();
-    const upcomingLaunches = launches.filter(l => l.upcoming);
-    upcomingLaunches.sort((a, b) => new Date(a.date_utc).getTime() - new Date(b.date_utc).getTime());
-    
-    if (upcomingLaunches.length > 0) {
-        return upcomingLaunches[0];
-    }
-    return getLatestLaunch();
-}
+const defaultLaunchpad: Launchpad = {
+    name: 'Unknown Launchpad',
+    locality: 'Unknown',
+    region: 'Unknown',
+    launch_attempts: 0,
+    launch_successes: 0,
+};
 
-// get rocket by id
-export async function getRocketById(id: string) {
-    const rockets: Record<string, any> = {
-        '5e9d0d95eda69955f709d1eb': { name: 'Falcon 1' },
-        '5e9d0d95eda69973a809d1ec': { name: 'Falcon 9' },
-        '5e9d0d95eda69974db09d1ed': { name: 'Falcon Heavy' },
-        '5e9d0d96ece2174fc709d1ee': { name: 'Starship' }
-    };
-    
-    if (rockets[id]) {
-        return rockets[id];
-    }
-    return { name: 'Unknown Rocket' };
-}
-
-// get launchpad by id
-export async function getLaunchpadById(id: string) {
-    const launchpads: Record<string, any> = {
+export function getLaunchpadById(id: string): Launchpad {
+    const launchpads: Record<string, Launchpad> = {
         '5e9e4501f509094ba4566f84': {
             name: 'CCSFS SLC 40',
             locality: 'Cape Canaveral',
@@ -152,15 +162,9 @@ export async function getLaunchpadById(id: string) {
             launch_successes: 0
         }
     };
-    
+
     if (launchpads[id]) {
         return launchpads[id];
     }
-    return { 
-        name: 'Unknown Launchpad',
-        locality: 'Unknown',
-        region: 'Unknown',
-        launch_attempts: 0,
-        launch_successes: 0
-    };
+    return defaultLaunchpad;
 }

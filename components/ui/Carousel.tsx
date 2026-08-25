@@ -36,6 +36,8 @@ export default function Carousel({ images }: CarouselProps) {
                             src={img}
                             alt={`Imagen ${index + 1}`}
                             className="w-full h-full object-cover"
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
                         />
                     </div>
                 ))}
