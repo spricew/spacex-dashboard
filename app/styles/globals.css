@@ -95,17 +95,15 @@ body {
 .scale-up {
   animation: scaleUp .3s backwards;
   animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  animation-range: entry 0% cover 80%;
 }
 
 @keyframes scaleUp {
   0% {
-    transform: scale(0);
-    /* transform: translateY(80px); */
+    transform: translateY(150px);
 
   }
   100% {
-    transform: scale(1);
-    /* transform: translateY(0); */
+    transform: translateY(0);
   }
 }
