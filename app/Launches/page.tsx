@@ -3,8 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import List from "@/components/layout/LaunchPage/List";
 import { fetchLaunches } from "@/app/Launches/actions";
 import Image from "next/image";
-
-import { Skeleton } from "@/components/ui/Skeleton";
+import { Skeleton } from "@/components/ui/Skeletons/Skeleton";
 
 export default async function Launches() {
     const initialLaunches = fetchLaunches(1);
