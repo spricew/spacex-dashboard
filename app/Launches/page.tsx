@@ -4,6 +4,8 @@ import List from "@/components/layout/LaunchPage/List";
 import { fetchLaunches } from "@/app/Launches/actions";
 import Image from "next/image";
 
+import { Skeleton } from "@/components/ui/Skeleton";
+
 export default async function Launches() {
     const initialLaunches = fetchLaunches(1);
 
@@ -24,9 +26,7 @@ export default async function Launches() {
 
             <div className="flex flex-col gap-6 px-4 py-8 md:px-24 md:py-18">
                 <Suspense fallback={
-                    <div className="flex justify-center items-center py-20">
-                        <div className="size-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    </div>
+                    <Skeleton />
                 }>
                     <List initialLaunches={initialLaunches} />
                 </Suspense>
